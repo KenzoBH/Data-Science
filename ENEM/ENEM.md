@@ -11,7 +11,7 @@ que acarretou em adiação da prova, diversas
 [medidas](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/orientacoes/medidas-de-prevencao-a-covid-19)
 preventivas para a realização do exame e a maior abstenção da história:
 [mais da metade dos candidatos não foram realizar o
-exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm).  
+exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm).   
 De fato, trata-se de uma grande experiência na vida do estudante
 brasileiro que busca uma vaga na universidade, visto que o ENEM é uma
 porta de entrada para diversas faculdades acerca do país - além de ser o
@@ -20,19 +20,19 @@ universidades (inclusive públicas), além de seus próprios vestibulares,
 oferecem vagas exclusivas para o exame, pelo
 [SiSU](https://sisu.mec.gov.br/) (Sistema de Seleção Unificada), e
 diversas universidades particulares oferecem bolsas de estudos aos
-participantes relativas às suas notas no exame.  
+participantes relativas às suas notas no exame.   
 A prova é realizada em dois dias: um reservado para as disciplinas de
 Ciências Humanas, Linguagens e a Redação, e outro dia para Matemática e
 Ciências da Natureza (atualemente a prova segue sse padrão, mas já foi
-diferente, e pode ser diferente no momento de sua leitura).  
+diferente, e pode ser diferente no momento de sua leitura).   
 Neste artigo, a gente vai explorar um pouco os dados - disponibilizados
 pelo próprio [Inep](https://enem.inep.gov.br/participante/), órgão
 responsável pelo exame - relativos aos exames de 2007 a 2015 organizados
 por escola. Os dados foram baixados neste
-[link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola).  
+[link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola).   
 É notável, portanto, que a escola em que o candidato estudou tem forte
 influência no seu desempenho. Muitas vezes, com um ensino não tão bom em
-suas escolas, muitos buscam fazer cursinhos preparatórios para o ENEM.
+suas escolas, muitos buscam fazer cursinhos preparatórios para o ENEM.   
 Veremos a seguir as relações entre a natureza da escola com o desempenho
 de seus estudantes. Como o ambiente influencia no futuro do candidato?
 Influencia de fato? Veremos!  
