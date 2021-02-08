@@ -1,18 +1,18 @@
 **Sobre o Sistema Educacional e Ambientes**
-==================================================
+===========================================
 
 O **Exame Nacional do Ensino Médio**, ou
 [ENEM](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem),
 ocorre todo ano - desde 1998 - e é a maior prova do Brasil, com cerca de
 [5 milhões de inscrições por
-ano](http://portal.inep.gov.br/artigo/-/asset_publisher/B4AQV9zFY7Bv/content/5-8-milhoes-estao-inscritos-para-fazer-o-enem-2020/21206#:~:text=Finalizadas%20as%20etapas%20de%20inscri%C3%A7%C3%A3o,Ensino%20M%C3%A9dio%20(Enem)%202020.).   
+ano](http://portal.inep.gov.br/artigo/-/asset_publisher/B4AQV9zFY7Bv/content/5-8-milhoes-estao-inscritos-para-fazer-o-enem-2020/21206#:~:text=Finalizadas%20as%20etapas%20de%20inscri%C3%A7%C3%A3o,Ensino%20M%C3%A9dio%20(Enem)%202020.).
 
 Nesse último ano, a prova foi um pouco diferente, devido ao coronavírus,
 que acarretou em adiação da prova, diversas
 [medidas](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/orientacoes/medidas-de-prevencao-a-covid-19)
 preventivas para a realização do exame e a maior abstenção da história:
 [mais da metade dos candidatos não foram realizar o
-exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm). 
+exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm).
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide2.PNG)
 
@@ -24,47 +24,60 @@ universidades (inclusive públicas), além de seus próprios vestibulares,
 oferecem vagas exclusivas para o exame, pelo
 [SiSU](https://sisu.mec.gov.br/) (Sistema de Seleção Unificada), e
 diversas universidades particulares oferecem bolsas de estudos aos
-participantes relativas às suas notas no exame.   
+participantes relativas às suas notas no exame.
 
 A prova é realizada em dois dias: um reservado para as disciplinas de
 Ciências Humanas, Linguagens e a Redação, e outro dia para Matemática e
 Ciências da Natureza (atualmente a prova segue esse padrão, mas já foi
-diferente, e pode ser diferente no momento de sua leitura).   
+diferente, e pode ser diferente no momento de sua leitura).
 
 Neste artigo, a gente vai explorar um pouco os dados - disponibilizados
 pelo próprio [Inep](https://enem.inep.gov.br/participante/), órgão
 responsável pelo exame - relativos aos exames de 2007 a 2015 organizados
 por escola. Os dados foram baixados neste
-[link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola).   
+[link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola).
 
 É notável, portanto, que a escola em que o candidato estudou tem forte
 influência no seu desempenho. Muitas vezes, com um ensino não tão bom em
-suas escolas, muitos buscam fazer cursinhos preparatórios para o ENEM.   
+suas escolas, muitos buscam fazer cursinhos preparatórios para o ENEM.  
 Veremos a seguir as relações entre a natureza da escola com o desempenho
 de seus estudantes. Como o ambiente influencia no futuro do candidato?
-Influencia de fato? Veremos!  
+Influencia de fato? Veremos!
 
-***
+------------------------------------------------------------------------
 
-## Sumário
+Sumário
+-------
 
-1. [Importação do dataset](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#1-importa%C3%A7%C3%A3o-do-dataset)
-2. [Brasil](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#2-brasil)
-    1. [Desempenho por estado: qual o melhor estado em Ciências Humanas?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#21-desempenho-por-estado-qual-o-melhor-estado-em-ci%C3%AAncias-humanas)
-    2. [Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#22-desempenho-por-tipo-administrativo-escolas-privadas-v%C3%A3o-melhor-no-enem)
-3. [Sudeste](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#3-sudeste)
-    1. [Desempenho no sudeste: SP é o melhor estado no ENEM?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#31-desempenho-no-sudeste-sp-%C3%A9-o-melhor-estado-no-enem)
-    2. [Desempenho no sudeste por tipo adminstrativo: como são as federais?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#32-desempenho-no-sudeste-por-tipo-adminstrativo-como-s%C3%A3o-as-federais)
-4. [São Paulo](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#4-s%C3%A3o-paulo)
-    1. [Desempenho pela localização: escolas urbanas e rurais](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#4-s%C3%A3o-paulo)
-    2. [São Paulo capital: a geografia na nota](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#4-s%C3%A3o-paulo)
-    3. [Sobre as públicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#43-sobre-as-p%C3%BAblicas)
-    4. [Sobre as escolas técnicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#44-sobre-as-escolas-t%C3%A9cnicas)    
-5. [Conclusão](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#5-conclus%C3%A3o)
+1.  [Importação do
+    dataset](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#1-importa%C3%A7%C3%A3o-do-dataset)
+2.  [Brasil](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#2-brasil)
+    1.  [Desempenho por estado: qual o melhor estado em Ciências
+        Humanas?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#21-desempenho-por-estado-qual-o-melhor-estado-em-ci%C3%AAncias-humanas)
+    2.  [Desempenho por tipo administrativo: escolas privadas vão melhor
+        no
+        ENEM?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#22-desempenho-por-tipo-administrativo-escolas-privadas-v%C3%A3o-melhor-no-enem)
+3.  [Sudeste](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#3-sudeste)
+    1.  [Desempenho no sudeste: SP é o melhor estado no
+        ENEM?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#31-desempenho-no-sudeste-sp-%C3%A9-o-melhor-estado-no-enem)
+    2.  [Desempenho no sudeste por tipo adminstrativo: como são as
+        federais?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#32-desempenho-no-sudeste-por-tipo-adminstrativo-como-s%C3%A3o-as-federais)
+4.  [São
+    Paulo](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#4-s%C3%A3o-paulo)
+    1.  [Desempenho pela localização: escolas urbanas e
+        rurais](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#4-s%C3%A3o-paulo)
+    2.  [São Paulo capital: a geografia na
+        nota](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#4-s%C3%A3o-paulo)
+    3.  [Sobre as
+        públicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#43-sobre-as-p%C3%BAblicas)
+    4.  [Sobre as escolas
+        técnicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#44-sobre-as-escolas-t%C3%A9cnicas)  
+5.  [Conclusão](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#5-conclus%C3%A3o)
 
-***
+------------------------------------------------------------------------
 
-## 1. Importação do dataset
+1. Importação do dataset
+------------------------
 
 Primeiro, vamos importar as bibliotecas que iremos utilizar. A
 biblioteca `tidyverse` será responsável pela manipulação e visualização
@@ -344,34 +357,31 @@ Irei selecionar apenas algumas colunas para nossa análise.
 
     enem <- select(enem,
                    -NU_PARTICIPANTES_NEC_ESP, -NU_MEDIA_OBJ, -NU_MEDIA_TOT,
-                   -PC_FORMACAO_DOCENTE, -NU_TAXA_PERMANENCIA,
+                   -PC_FORMACAO_DOCENTE, -NU_TAXA_PERMANENCIA, -CO_UF_ESCOLA,  
                    -CO_MUNICIPIO_ESCOLA, -CO_ESCOLA_EDUCACENSO, -NU_MATRICULAS, 
                    -NU_PARTICIPANTES, -NU_TAXA_PARTICIPACAO, -INSE, -NU_TAXA_APROVACAO,
-                   -NU_TAXA_REPROVACAO, -NU_TAXA_ABANDONO, -PORTE_ESCOLA
-                   )
+                   -NU_TAXA_REPROVACAO, -NU_TAXA_ABANDONO, -PORTE_ESCOLA)
     kable(
       head(enem)
       )
 
-<table>
+<table style="width:100%;">
 <colgroup>
 <col style="width: 3%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 10%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 7%" />
 <col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
 <col style="width: 6%" />
 <col style="width: 6%" />
 <col style="width: 6%" />
 <col style="width: 6%" />
-<col style="width: 6%" />
+<col style="width: 7%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">NU_ANO</th>
-<th style="text-align: right;">CO_UF_ESCOLA</th>
 <th style="text-align: left;">SG_UF_ESCOLA</th>
 <th style="text-align: left;">NO_MUNICIPIO_ESCOLA</th>
 <th style="text-align: left;">NO_ESCOLA_EDUCACENSO</th>
@@ -387,7 +397,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">2007</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO DE ENSINO CLASSE A</td>
@@ -401,7 +410,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2006</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO DE ENSINO CLASSE A</td>
@@ -415,7 +423,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2005</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO DE ENSINO CLASSE A</td>
@@ -429,7 +436,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2008</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO DE ENSINO CLASSE A</td>
@@ -443,7 +449,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2007</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO EDUCACIONAL MOJUCA</td>
@@ -457,7 +462,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2008</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO EDUCACIONAL MOJUCA</td>
@@ -498,22 +502,22 @@ Irei selecionar apenas algumas colunas para nossa análise.
     Regular.
 
 Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
-"NU\_ANO" para recuperar as observações, que correspondem a uma escola, referentes apenas ao desempenho no exame de 2015. Nosso novo
-*dataframe* será chamado de `enem2015`.
+“NU\_ANO” para recuperar as observações, que correspondem a uma escola,
+referentes apenas ao desempenho no exame de 2015. Nosso novo *dataframe*
+será chamado de `enem2015`.
 
     enem2015 <- filter(enem, NU_ANO == 2015)
     kable(
       head(enem2015)
       )
 
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 2%" />
-<col style="width: 5%" />
+<col style="width: 3%" />
 <col style="width: 5%" />
 <col style="width: 8%" />
-<col style="width: 32%" />
-<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 11%" />
 <col style="width: 9%" />
 <col style="width: 5%" />
 <col style="width: 5%" />
@@ -524,7 +528,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 <thead>
 <tr class="header">
 <th style="text-align: right;">NU_ANO</th>
-<th style="text-align: right;">CO_UF_ESCOLA</th>
 <th style="text-align: left;">SG_UF_ESCOLA</th>
 <th style="text-align: left;">NO_MUNICIPIO_ESCOLA</th>
 <th style="text-align: left;">NO_ESCOLA_EDUCACENSO</th>
@@ -540,7 +543,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO DE ENSINO CLASSE A</td>
@@ -554,7 +556,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO EDUCACIONAL MOJUCA</td>
@@ -568,7 +569,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO EDUCACIONAL OBJETIVO</td>
@@ -582,7 +582,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">COLEGIO DOM BOSCO</td>
@@ -596,7 +595,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">CENTRO EDUCACIONAL OBJETIVO - UNIDADE JARDIM AMERICA</td>
@@ -610,7 +608,6 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">11</td>
 <td style="text-align: left;">RO</td>
 <td style="text-align: left;">Porto Velho</td>
 <td style="text-align: left;">COLEGIO TIRADENTES DA POLICIA MILITAR DO ESTADO DE RONDONIA EEEFM TIRADENTES</td>
@@ -625,25 +622,30 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tbody>
 </table>
 
-Qual o tamanho do nosso `dataset`? Até agora só mostrei as primeiras linhas do conjunto de dados, mas não sabemos sua dimensão real. Vamos ver.
-    
+Qual o tamanho do nosso `dataset`? Até agora só mostrei as primeiras
+linhas do conjunto de dados, mas não sabemos sua dimensão real. Vamos
+ver.
+
     dim(enem2015)
-    
-    #> [1] 15598    12
 
-Há 15.598 escolas no nosso conjunto de dados.   
-Dados prontos! (Na verdade, ainda não: veremos que algumas colunas ainda deverão ser manipuladas).
+    ## [1] 15598    11
 
-***
+Há 15.598 escolas no nosso conjunto de dados.  
+Dados prontos! (Na verdade, ainda não: veremos que algumas colunas ainda
+deverão ser manipuladas).
 
-## 2. Brasil
+------------------------------------------------------------------------
 
-Agora, vamos comparar desempenho do país inteiro nessa edição do ENEM. Começaremos com a média da nota em Ciências Humanas. 
+2. Brasil
+---------
+
+Agora, vamos comparar desempenho do país inteiro nessa edição do ENEM.
+Começaremos com a média da nota em Ciências Humanas.
 
 ### 2.1. Desempenho por estado: qual o melhor estado em Ciências Humanas?
 
-Como se dá as médias dos estados na prova de Ciências
-Humanas? Quais suas expectativas?
+Como se dá as médias dos estados na prova de Ciências Humanas? Quais
+suas expectativas?
 
     kable(
       enem2015 %>% 
@@ -771,8 +773,8 @@ Humanas? Quais suas expectativas?
 </tbody>
 </table>
 
-Atingiu o que você esperava? **Vemos um destaque do Distrito Federal, dos
-estados do Sudeste e do Sul**. Essas notas são boas, afinal? São tão
+Atingiu o que você esperava? **Vemos um destaque do Distrito Federal,
+dos estados do Sudeste e do Sul**. Essas notas são boas, afinal? São tão
 distantes?  
 Para termos uma noção, a nota de corte para o curso de Medicina na
 Universidade de São Paulo [chegou aos 920
@@ -785,7 +787,7 @@ Universidade de São Paulo com uma nota abaixo de 700 pontos, que foi a
 [menor nota de
 corte](https://querobolsa.com.br/sisu/notas-de-corte/faculdades/universidade-de-sao-paulo)
 dessa mesma edição, para o curso de Lazer e Turismo Noturno.  
-Vamos continuar nossa análise!  
+Vamos continuar nossa análise!
 
 ### 2.2 Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?
 
@@ -835,8 +837,7 @@ numéricos para os valores reais das variáveis, para melhor entendimento.
     kable(
       enem2015 %>% 
       group_by(TP_DEPENDENCIA_ADM_ESCOLA) %>% 
-      summarise(N_ESCOLAS = n()) %>% 
-      arrange(N_ESCOLAS)
+      summarise(N_ESCOLAS = n())
       )
 
 <table>
@@ -848,20 +849,20 @@ numéricos para os valores reais das variáveis, para melhor entendimento.
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Estadual</td>
-<td style="text-align: right;">109</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Federal</td>
 <td style="text-align: right;">328</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Privada</td>
-<td style="text-align: right;">6325</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Municipal</td>
 <td style="text-align: right;">8836</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Estadual</td>
+<td style="text-align: right;">109</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Privada</td>
+<td style="text-align: right;">6325</td>
 </tr>
 </tbody>
 </table>
@@ -878,29 +879,30 @@ de Matemática. Faça suas apostas.
            x = "Tipo Administrativo", y = "Média da Escola") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/matemática%20por%20tipo%20administrativo-1.png)
+![](ENEM_R_files/figure-markdown_strict/matemática%20por%20tipo%20administrativo-1.png)
 
-**A melhor escola do país é uma escola privada**, e a
-pior é uma municipal. Nota-se uma distribuição um pouco parecida entre
-as escolas federais e privadas - com exceção de privadas com excelente
-desempenho. As federais são ótimas escolas. Até certo tempo, havia um
-processo seletivo baseado em uma prova - vestibulinho - para o ingresso
-dos alunos. Porém, foi substituída pela análise do histórico escolar dos
+**A melhor escola do país é uma escola privada**, e a pior é uma
+municipal. Nota-se uma distribuição um pouco parecida entre as escolas
+federais e privadas - com exceção de privadas com excelente desempenho.
+As federais são ótimas escolas. Até certo tempo, havia um processo
+seletivo baseado em uma prova - vestibulinho - para o ingresso dos
+alunos. Porém, foi substituída pela análise do histórico escolar dos
 alunos.  
-Parece que a *existência de um processo seletivo aumenta o desempenho dos
-alunos*. Pois, apesar de serem escolas públicas, as federais apresentam
-um melhor desempenho. Veremos essa ideia se concretizando um pouco mais
-adiante.
+Parece que a *existência de um processo seletivo aumenta o desempenho
+dos alunos*. Pois, apesar de serem escolas públicas, as federais
+apresentam um melhor desempenho. Veremos essa ideia se concretizando um
+pouco mais adiante.
 
-***
+------------------------------------------------------------------------
 
-## 3. Sudeste
+3. Sudeste
+----------
 
 Partiremos para a análise da região Sudeste, que obteve boas médias em
 Ciências Humanas.  
 Irei criar uma nova variável, `enem2015_sud`, referente às escolas do
 sudeste (pertencentes ao Espírito Santo, Minas Gerais, Rio de Janeiro ou
-São Paulo).  
+São Paulo).
 
 ### 3.1 Desempenho no sudeste: SP é o melhor estado no ENEM?
 
@@ -914,10 +916,11 @@ Como é a distribuição de cada estado em redação?
            x = "Estado", y = "Média da Escola em Redação") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/filtro%20sudeste-1.png)
+![](ENEM_R_files/figure-markdown_strict/filtro%20sudeste-1.png)
 
 O Espírito Santo apresenta um desempenho um pouco abaixo dos demais
-estados. **No sudeste, a melhor escola em redação foi do Rio de Janeiro**. 
+estados. **No sudeste, a melhor escola em redação foi do Rio de
+Janeiro**.
 
 ### 3.2 Desempenho no sudeste por tipo adminstrativo: como são as federais?
 
@@ -933,7 +936,7 @@ estado.
            x = "Estado", y = "Média em Redação do ENEM", fill = "Tipo Administrativo") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/sudeste%20e%20tipo%20administrativo-1.png)
+![](ENEM_R_files/figure-markdown_strict/sudeste%20e%20tipo%20administrativo-1.png)
 
 Novamente, **as federais se destacam em relação às outras públicas**, e
 acabam superando as privadas no Espírito Santo e no Rio de Janeiro.  
@@ -958,7 +961,6 @@ Há dados faltantes?
     }
 
     ## [1] "NU_ANO = 0"
-    ## [1] "CO_UF_ESCOLA = 0"
     ## [1] "SG_UF_ESCOLA = 0"
     ## [1] "NO_MUNICIPIO_ESCOLA = 0"
     ## [1] "NO_ESCOLA_EDUCACENSO = 0"
@@ -974,12 +976,13 @@ Bem, não encontrei nenhuma razão para isso, mas é um bom
 questionamento.  
 Partiremos para São Paulo.
 
-***
+------------------------------------------------------------------------
 
-## 4. São Paulo
+4. São Paulo
+------------
 
 Irei criar uma nova variável, `enem2015_SP` que contém as escolas de São
-Paulo.  
+Paulo.
 
 ### 4.1. Desempenho pela localização: escolas urbanas e rurais
 
@@ -1022,17 +1025,17 @@ Natureza.
            x = "Localização", y  = "Média em Ciências da Natureza (Biologia, Química e Física)") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/por%20localização-1.png)
+![](ENEM_R_files/figure-markdown_strict/por%20localização-1.png)
 
 **O desempenho médio das urbanas supera - um pouco - o das escolas
-rurais.**  
+rurais.**
 
 ### 4.2 São Paulo capital: a geografia na nota
 
 Vejamos agora o desempenho em redação em São Paulo. Qual a média no
 estado?  
-*O tema desse ano foi: "A PERSISTÊNCIA DA VIOLÊNCIA CONTRA A MULHER NA
-SOCIEDADE BRASILEIRA".*
+*O tema desse ano foi: “A PERSISTÊNCIA DA VIOLÊNCIA CONTRA A MULHER NA
+SOCIEDADE BRASILEIRA”.*
 
     print(summary(enem2015_SP$NU_MEDIA_RED, na.rm = TRUE))
 
@@ -1048,25 +1051,23 @@ analisarmos.
       head(arrange(SP_melhores, desc(NU_MEDIA_RED)))
     )
 
-<table>
+<table style="width:100%;">
 <colgroup>
 <col style="width: 3%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
+<col style="width: 6%" />
 <col style="width: 9%" />
-<col style="width: 27%" />
-<col style="width: 11%" />
-<col style="width: 9%" />
+<col style="width: 28%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
 <col style="width: 5%" />
 <col style="width: 5%" />
 <col style="width: 5%" />
 <col style="width: 5%" />
-<col style="width: 5%" />
+<col style="width: 6%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">NU_ANO</th>
-<th style="text-align: right;">CO_UF_ESCOLA</th>
 <th style="text-align: left;">SG_UF_ESCOLA</th>
 <th style="text-align: left;">NO_MUNICIPIO_ESCOLA</th>
 <th style="text-align: left;">NO_ESCOLA_EDUCACENSO</th>
@@ -1082,7 +1083,6 @@ analisarmos.
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">Ribeirão Preto</td>
 <td style="text-align: left;">SEB COC UNIDADE ALVARES CABRAL</td>
@@ -1096,7 +1096,6 @@ analisarmos.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Paulo</td>
 <td style="text-align: left;">VITAL BRAZIL COLEGIO</td>
@@ -1110,7 +1109,6 @@ analisarmos.
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Paulo</td>
 <td style="text-align: left;">PENTAGONO COLEGIO UNIDADE CAIUBI</td>
@@ -1124,7 +1122,6 @@ analisarmos.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Carlos</td>
 <td style="text-align: left;">SAO CARLOS INSTITUTO EDUCACAO DE ENSINO FUNDAMENTAL E MEDIO</td>
@@ -1138,7 +1135,6 @@ analisarmos.
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Paulo</td>
 <td style="text-align: left;">LICEU DE ARTES E OFICIOS DE SAO PAULO ESCOLA TECNICA</td>
@@ -1152,7 +1148,6 @@ analisarmos.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Paulo</td>
 <td style="text-align: left;">OBJETIVO COLEGIO INTEGRADO</td>
@@ -1167,8 +1162,8 @@ analisarmos.
 </tbody>
 </table>
 
-Vemos que **a melhor escola de São Paulo em redação é de Ribeirão Preto**,
-que teve ótimos rendimentos nas outras provas também.  
+Vemos que **a melhor escola de São Paulo em redação é de Ribeirão
+Preto**, que teve ótimos rendimentos nas outras provas também.  
 Mais abaixo, vemos a escola *Liceu de Artes e Ofícios de São Paulo
 Escola Técnica*, em quinto lugar, onde eu estudei :D  
 Eu não estudava lá ainda em 2015. Acho que se eu tivesse, a escola não
@@ -1184,7 +1179,7 @@ Vemos muitas escolas do interior. Quantas são nas melhores?
            x = "Localização", y = "Quantidade") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/capital-1.png)
+![](ENEM_R_files/figure-markdown_strict/capital-1.png)
 
 Há mais escolas do interior dentre as melhores. Mas isso é esperado?
 Como é a distribuição para todas as escolas de São Paulo? Vejamos.
@@ -1198,11 +1193,11 @@ Como é a distribuição para todas as escolas de São Paulo? Vejamos.
            x = "Localização", y = "Quantidade") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/quantas%20no%20total%20são%20da%20capital-1.png)
+![](ENEM_R_files/figure-markdown_strict/quantas%20no%20total%20são%20da%20capital-1.png)
 
 Vemos que, dentre todas as escolas de São Paulo, a proporção de escolas
-na capital diminui. O que evidencia que **as escolas da capital tem melhor
-desempenho em redação.**
+na capital diminui. O que evidencia que **as escolas da capital tem
+melhor desempenho em redação.**
 
 ### 4.3 Sobre as públicas
 
@@ -1219,21 +1214,19 @@ São Paulo.
 <colgroup>
 <col style="width: 3%" />
 <col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 9%" />
-<col style="width: 23%" />
-<col style="width: 12%" />
 <col style="width: 10%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
+<col style="width: 25%" />
+<col style="width: 13%" />
+<col style="width: 11%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
 <col style="width: 6%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">NU_ANO</th>
-<th style="text-align: right;">CO_UF_ESCOLA</th>
 <th style="text-align: left;">SG_UF_ESCOLA</th>
 <th style="text-align: left;">NO_MUNICIPIO_ESCOLA</th>
 <th style="text-align: left;">NO_ESCOLA_EDUCACENSO</th>
@@ -1249,7 +1242,6 @@ São Paulo.
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">Campinas</td>
 <td style="text-align: left;">CAMPINAS COLEGIO TECNICO DE - UNICAMP</td>
@@ -1263,7 +1255,6 @@ São Paulo.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">Bauru</td>
 <td style="text-align: left;">COL TEC INDUSTRIAL PROF ISAAC PORTAL ROLDAN UNESP</td>
@@ -1277,7 +1268,6 @@ São Paulo.
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Paulo</td>
 <td style="text-align: left;">IFSP - CAMPUS SAO PAULO</td>
@@ -1291,7 +1281,6 @@ São Paulo.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">Guaratinguetá</td>
 <td style="text-align: left;">CARLOS AUGUSTO PATRICIO AMORIM PROF CTIG UNESP</td>
@@ -1305,7 +1294,6 @@ São Paulo.
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">São Paulo</td>
 <td style="text-align: left;">SAO PAULO ETEC DE</td>
@@ -1319,7 +1307,6 @@ São Paulo.
 </tr>
 <tr class="even">
 <td style="text-align: right;">2015</td>
-<td style="text-align: right;">35</td>
 <td style="text-align: left;">SP</td>
 <td style="text-align: left;">Limeira</td>
 <td style="text-align: left;">LIMEIRA COLEGIO TECNICO DE UNICAMP</td>
@@ -1335,15 +1322,15 @@ São Paulo.
 </table>
 
 Vemos o destaque daquelas do interior também. Porém, há algo comum a
-**todas** elas: são colégios técnicos ou federais. 
+**todas** elas: são colégios técnicos ou federais.
 
 ### 4.4. Sobre as escolas técnicas
 
 Vamos analisar os colégios técnicos - em São Paulo, há escolas técnicas
-estaduais, ou [ETEC's](https://www.cps.sp.gov.br/category/etec/).  
-Adicionei uma coluna ao nosso *dataframe*, chamada de "Tecnica", que
-indica se o nome da escola contém "TEC": vimos que algumas contém "ETEC"
-enquanto outras "Colégio Técnico" ou "Escola Técnica"
+estaduais, ou [ETEC’s](https://www.cps.sp.gov.br/category/etec/).  
+Adicionei uma coluna ao nosso *dataframe*, chamada de “Tecnica”, que
+indica se o nome da escola contém “TEC”: vimos que algumas contém “ETEC”
+enquanto outras “Colégio Técnico” ou “Escola Técnica”
 
     SP_tecnicas <- SP_publicas %>% 
       mutate(Tecnica = ifelse(str_detect(NO_ESCOLA_EDUCACENSO, "TEC"), # ETEC ou TECNINO/TECNICA
@@ -1398,7 +1385,7 @@ Vejamos a proporção das escolas técnicas no estado.
            x = NULL, y = "Quantidade") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/grafico%20tecnicas,%20proporção-1.png)
+![](ENEM_R_files/figure-markdown_strict/grafico%20tecnicas,%20proporção-1.png)
 
 Vemos que a exorbitante maioria é composta por colégios não técnicos.
 Porém, dentro das melhores escolas de São Paulo, vemos que a
@@ -1413,7 +1400,7 @@ aquelas com desempenho em Matemática acima dos 600 pontos.
            x = NULL, y = "Quantidade") +
       theme_bw()
 
-![](a_files/figure-markdown_strict/Se%20tecnicas%20são%20melhores-1.png)
+![](ENEM_R_files/figure-markdown_strict/Se%20tecnicas%20são%20melhores-1.png)
 
 O que esses gráficos dizem pra você? O fato é que as escolas técnicas
 foram melhores, em média, que as escolas públicas não técnicas. Por
@@ -1425,28 +1412,29 @@ com que - já tendo passado por experciências de seleção - suas notas em
 matemática tenham sido melhores do que aqueles que não fizeram um
 colégio técnico.  
 Apesar das dificuldades e demandas de um ensino técnico integrado ao
-ensino médio, os alunos de ETEC's se destacam.
+ensino médio, os alunos de ETEC’s se destacam.
 
-***
+------------------------------------------------------------------------
 
-## 5. Conclusão
+5. Conclusão
+------------
 
 A educação no Brasil, de fato, não é democrática. Vimos que os estados
 possuem desempenhos bem diferentes na maior prova do país. Ademais, o
-tipo administrativo também influencia no desempenho dos alunos.  
+tipo administrativo também influencia no desempenho dos alunos.
 
 Porém, o que acaba mais influenciando na nota de um aluno é o ambiente
 em que está inserido e o esforço do mesmo, visto que, colégios públicos
 que contêm processos seletivos, e dessa forma, aumentam o nível
 acadêmico que o aluno é exposto, possuem melhores rendimentos que
 colégios públicos convencionais, evidenciando como muitas vezes, não
-depende apenas do estudante.  
+depende apenas do estudante.
 
 Ademais, existem escolas públicas que foram melhores que particulares,
-que, muitas vezes, possuem melhores infraestruturas.  
+que, muitas vezes, possuem melhores infraestruturas.
 
 Espero que nossa análise te faça pensar um pouco sobre nosso sistema
-educacional, e como ele impacta o futuro do nosso país.  
+educacional, e como ele impacta o futuro do nosso país.
 
-Obrigado pela leitura!   
+Obrigado pela leitura!  
 *Kenzo.*
