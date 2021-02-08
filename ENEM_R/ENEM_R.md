@@ -1024,7 +1024,7 @@ Natureza.
 
 ![](a_files/figure-markdown_strict/por%20localização-1.png)
 
-**O desempenho médio das urbanas supera - um pouco - as das escolas
+**O desempenho médio das urbanas supera - um pouco - o das escolas
 rurais.**  
 
 ### 4.2 São Paulo capital: a geografia na nota
