@@ -1371,7 +1371,7 @@ ensino médio, os alunos de ETEC’s se destacam.
 Conclusão
 =========
 
-A educação no Brasil, de fato, não é democrática. Vimos que os estados
+   A educação no Brasil, de fato, não é democrática. Vimos que os estados
 possuem desempenhos bem diferentes na maior prova do país. Ademais, o
 tipo administrativo também influencia no desempenho dos alunos.  
 Porém, o que acaba mais influenciando na nota de um aluno é o ambiente
@@ -1384,6 +1384,6 @@ Ademais, existem escolas públicas que foram melhores que particulares,
 que, muitas vezes, possuem melhores infraestruturas.  
 Espero que nossa análise te faça pensar um pouco sobre nosso sistema
 educacional, e como ele impacta o futuro do nosso país.  
-\*\*\*
 
 Obrigado pela leitura!
+Kenzo.
