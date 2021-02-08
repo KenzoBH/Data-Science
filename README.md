@@ -1,5 +1,7 @@
 # Data-Science: portfólio de projetos
 
+Aqui se encontram meus projetos desenvolvidos relacionados à ciência de dados.
+
 ## Projetos
 
 Projetos em Linguagem R:
