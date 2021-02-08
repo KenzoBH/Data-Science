@@ -2,7 +2,7 @@
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide1.PNG)
 
-# **Projetos**
+# **Sobre Ciência de Dados**
 
 - [**Análise Exploratória de Dados do
 ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md)   
