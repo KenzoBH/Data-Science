@@ -476,8 +476,7 @@ Irei selecionar apenas algumas colunas para nossa análise.
 -------------
 
 Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
-“NU\_ANO” para recuperar as observações - que correspondem a uma escola
-- referentes apenas ao desempenho no exame de 2015. Nosso novo
+“NU\_ANO” para recuperar as observações, que correspondem a uma escola, referentes apenas ao desempenho no exame de 2015. Nosso novo
 *dataframe* será chamado de `enem2015`.
 
     enem2015 <- filter(enem, NU_ANO == 2015)
