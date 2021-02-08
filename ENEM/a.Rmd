@@ -1,0 +1,85 @@
+---
+title: "RMk"
+author: "Bruno Kenzo"
+output: md_document
+---
+
+# **Análise de Dados: Enem por escola**
+
+Introdução, link: https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola
+
+```{r importação de bibliotecas, warning = FALSE}
+library(tidyverse)
+library(knitr)
+```
+
+descrição do conjunto de dados
+
+```{r leitura dos dados}
+enem <- read.csv("MICRODADOS_ENEM_ESCOLA.csv", sep=';')
+kable(head(enem))
+```
+
+```{r verificação da proporção de NA por coluna}
+for (i in 1:length(enem)){
+  prop_na = (sum(is.na(enem[i]))/length(enem[[i]])) * 100 # calculo da proporção
+  if (prop_na > 70) { # vamos printar apenas aqueles em que a proporção supera os 70%
+  print(str_c(names(enem)[i], " = ", (prop_na)))
+}
+}
+```
+
+Assim, excluiremos certas colunas
+
+```{r seleção das colunas relevantes}
+enem <- select(enem,
+               -CO_UF_ESCOLA, -CO_MUNICIPIO_ESCOLA, -CO_ESCOLA_EDUCACENSO,
+               -NU_PARTICIPANTES_NEC_ESP, -NU_MEDIA_OBJ, -NU_MEDIA_TOT,
+               -PC_FORMACAO_DOCENTE, -NU_TAXA_PERMANENCIA)
+kable(head(enem))
+```
+
+## **ENEM 2015**
+Desejo fazer a análise apenas de 2015
+
+```{r filtro para o ENEM 2015}
+enem2015 <- filter(enem, NU_ANO == 2015)
+kable(head(enem2015))
+```
+
+### Tipo Adminitrativo
+
+```{r x, warning = FALSE}
+enem2015 %>% 
+  group_by(TP_DEPENDENCIA_ADM_ESCOLA) %>% 
+  summarise(N_ESCOLAS = n())
+```
+
+conversão
+
+```{r y, message = FALSE}
+enem2015$TP_DEPENDENCIA_ADM_ESCOLA <- factor(enem2015$TP_DEPENDENCIA_ADM_ESCOLA)
+levels(enem2015$TP_DEPENDENCIA_ADM_ESCOLA) <- c("Federal","Municipal","Estadual","Privada")
+
+kable(enem2015 %>% 
+  group_by(TP_DEPENDENCIA_ADM_ESCOLA) %>% 
+  summarise(N_ESCOLAS = n()) %>% 
+  arrange(N_ESCOLAS))
+```
+
+
+```{r matemática 2015 por tipo administrativo, echo = FALSE}
+enem2015 %>% 
+  ggplot(aes(x = TP_DEPENDENCIA_ADM_ESCOLA, y = NU_MEDIA_MT,
+             fill = TP_DEPENDENCIA_ADM_ESCOLA)) +
+  geom_boxplot(show.legend = FALSE) +
+  labs(title = "Desempenho em Matemática (ENEM 2015) por Tipo Administrativo",
+       x = "Tipo Administrativo", y = "Média da Escola") +
+  theme_bw()
+```
+
+Conclusão sobre esse gráfico
+
+
+
+
