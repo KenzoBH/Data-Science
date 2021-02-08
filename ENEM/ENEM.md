@@ -46,19 +46,19 @@ Influencia de fato? Veremos!
 
 ## Sumário
 
-1. [Importação do dataset](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md)
-2. [Brasil](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md)
-    1.[Desempenho por estado: qual o melhor estado em Ciências Humanas?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#21-desempenho-por-estado-qual-o-melhor-estado-em-ci%C3%AAncias-humanas)
-    2. [Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?]()
+1. [Importação do dataset](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#1-importa%C3%A7%C3%A3o-do-dataset)
+2. [Brasil](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#2-brasil)
+    1. [Desempenho por estado: qual o melhor estado em Ciências Humanas?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#21-desempenho-por-estado-qual-o-melhor-estado-em-ci%C3%AAncias-humanas)
+    2. [Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#22-desempenho-por-tipo-administrativo-escolas-privadas-v%C3%A3o-melhor-no-enem)
 3. [Sudeste](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#3-sudeste)
-    1. [Desempenho no sudeste: SP é o melhor estado no ENEM?]()
-    2. [Desempenho no sudeste por tipo adminstrativo: como são as federais?]()
-4. [São Paulo]()
-    1. [Desempenho pela localização: escolas urbanas e rurais]()
-    2. [São Paulo capital: a geografia]()
-    3. [Sobre as públicas]()
-    4. [Sobre as escolas técnicas]()    
-5. [Conclusão]()
+    1. [Desempenho no sudeste: SP é o melhor estado no ENEM?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#31-desempenho-no-sudeste-sp-%C3%A9-o-melhor-estado-no-enem)
+    2. [Desempenho no sudeste por tipo adminstrativo: como são as federais?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#32-desempenho-no-sudeste-por-tipo-adminstrativo-como-s%C3%A3o-as-federais)
+4. [São Paulo](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#4-s%C3%A3o-paulo)
+    1. [Desempenho pela localização: escolas urbanas e rurais](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#4-s%C3%A3o-paulo)
+    2. [São Paulo capital: a geografia na nota](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#4-s%C3%A3o-paulo)
+    3. [Sobre as públicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#43-sobre-as-p%C3%BAblicas)
+    4. [Sobre as escolas técnicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#44-sobre-as-escolas-t%C3%A9cnicas)    
+5. [Conclusão](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#44-sobre-as-escolas-t%C3%A9cnicas)
 
 ***
 
