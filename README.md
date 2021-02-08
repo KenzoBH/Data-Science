@@ -23,7 +23,7 @@ Um apaixonado por Matemática e um futuro cientista de dados.
 ## **Formação**
 
 ### **Técnico em Eletrônica** (janeiro/2018 - dezembro/2020)  
-#### *Liceu de Artes e Ofícios de São Paulo*  
+*Liceu de Artes e Ofícios de São Paulo*  
 Curso técnico integrado ao Ensino Médio em período semi-integral.
 Trabalhados conceitos de álgebra booleana, programação de
 microcontroladores em linguagem C++ – além do desenvolvimento de um
@@ -34,12 +34,12 @@ abordados em aulas práticas e teóricas.
 ## **Experiência**
 
 ### **Apoio de Eletrônica para Projetos de Instrumentação Astronômica** (dezembro/2020 – atual)  
-#### *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
+*Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
 Desenvolvimento do módulo SAMplus do satélite SOAR com bolsa FAPESP, sob
 orientação e supervisão de profissionais.
 
 ### **Estágio - Técnico em Eletrônica** (março/2020 - agosto/2020)  
-#### *Etec Getúlio Vargas*  
+*Etec Getúlio Vargas*  
 Estágio relacionado às instalações elétricas da Escola Técnica, com
 supervisão de profissionais experientes.
 
