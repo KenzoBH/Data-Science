@@ -4,6 +4,21 @@
 Introdução, link:
 <a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola" class="uri">https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola</a>
 
+    library(tidyverse)
+
+    ## -- Attaching packages ---------------------------------------------------------- tidyverse 1.3.0 --
+
+    ## v ggplot2 3.3.2     v purrr   0.3.4
+    ## v tibble  3.0.2     v dplyr   1.0.0
+    ## v tidyr   1.1.0     v stringr 1.4.0
+    ## v readr   1.3.1     v forcats 0.5.0
+
+    ## -- Conflicts ------------------------------------------------------------- tidyverse_conflicts() --
+    ## x dplyr::filter() masks stats::filter()
+    ## x dplyr::lag()    masks stats::lag()
+
+    library(knitr)
+
 descrição do conjunto de dados
 
     enem <- read.csv("MICRODADOS_ENEM_ESCOLA.csv", sep=';')
@@ -633,13 +648,7 @@ Desejo fazer a análise apenas de 2015
       group_by(TP_DEPENDENCIA_ADM_ESCOLA) %>% 
       summarise(N_ESCOLAS = n())
 
-    ## Warning: `...` is not empty.
-    ## 
-    ## We detected these problematic arguments:
-    ## * `needs_dots`
-    ## 
-    ## These dots only exist to allow future extensions and should be empty.
-    ## Did you misspecify an argument?
+    ## `summarise()` ungrouping output (override with `.groups` argument)
 
     ## # A tibble: 4 x 2
     ##   TP_DEPENDENCIA_ADM_ESCOLA N_ESCOLAS
