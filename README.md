@@ -20,8 +20,6 @@ Um apaixonado por Matemática e um futuro cientista de dados.
 *E-mail*
 <a href="mailto:brunokenzoh@gmail.com" class="email">brunokenzoh@gmail.com</a>
 
-------------------------------------------------------------------------
-
 ## **Formação**
 
 **Técnico em Eletrônica** (janeiro/2018 - dezembro/2020)  
@@ -32,8 +30,6 @@ microcontroladores em linguagem C++ – além do desenvolvimento de um
 projeto programado em linguagem Python e C++ de programação, como
 Trabalho de Conclusão de Curso – entre outros conhecimentos específicos,
 abordados em aulas práticas e teóricas.
-
-------------------------------------------------------------------------
 
 ## **Experiência**
 
@@ -48,7 +44,6 @@ orientação e supervisão de profissionais.
 Estágio relacionado às instalações elétricas da Escola Técnica, com
 supervisão de profissionais experientes.
 
-------------------------------------------------------------------------
 
 ## **Extracurricularidades**
 
