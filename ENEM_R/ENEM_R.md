@@ -867,7 +867,7 @@ numéricos para os valores reais das variáveis, para melhor entendimento.
 </table>
 
 Pronto! Muito melhor para nossa interpretação.  
-Vamos ver um gráfico de como os tipos adminitrativos se saíram na prova
+Vamos ver um gráfico de como os tipos administrativos se saíram na prova
 de Matemática. Faça suas apostas.
 
     enem2015 %>% 
