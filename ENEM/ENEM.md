@@ -625,6 +625,13 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tbody>
 </table>
 
+Qual o tamanho do nosso `dataset`? Até agora só mostrei as primeiras linhas do conjunto de dados, mas não sabemos sua dimensão real. Vamos ver.
+    
+    dim(enem2015)
+    
+    #> [1] 15598    12
+
+Há 15.598 escolas no nosso conjunto de dados.   
 Dados prontos! (Na verdade, ainda não: veremos que algumas colunas ainda deverão ser manipuladas).
 
 ***
