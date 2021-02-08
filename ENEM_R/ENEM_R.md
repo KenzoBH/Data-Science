@@ -944,7 +944,7 @@ melhores da região. As federais de São Paulo são as piores.
 Não há estaduais no Espírito Santo! Não achei nada a respeito no [site
 da rede estadual de ensino do
 ES](https://sedu.es.gov.br/rede-estadual-de-ensino), mas achei um fato
-interessante de ser quetionado o porquê.
+interessante de ser questionado o porquê.
 
 Há dados faltantes?
 
