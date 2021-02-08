@@ -747,7 +747,8 @@ Universidade de São Paulo com uma nota abaixo de 700 pontos, que foi a
 corte](https://querobolsa.com.br/sisu/notas-de-corte/faculdades/universidade-de-sao-paulo)
 dessa mesma edição, para o curso de Lazer e Turismo Noturno.  
 Vamos continuar nossa análise!  
-\*\*\*
+
+***
 
 ### Tipo Adminitrativo
 
