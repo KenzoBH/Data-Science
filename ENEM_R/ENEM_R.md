@@ -46,8 +46,7 @@ Influencia de fato? Veremos!
 
 ------------------------------------------------------------------------
 
-Sumário
--------
+## Sumário
 
 1.  [Importação do
     dataset](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md#1-importa%C3%A7%C3%A3o-do-dataset)
@@ -76,8 +75,7 @@ Sumário
 
 ------------------------------------------------------------------------
 
-1. Importação do dataset
-------------------------
+## 1. Importação do dataset
 
 Primeiro, vamos importar as bibliotecas que iremos utilizar. A
 biblioteca `tidyverse` será responsável pela manipulação e visualização
@@ -636,8 +634,7 @@ deverão ser manipuladas).
 
 ------------------------------------------------------------------------
 
-2. Brasil
----------
+## 2. Brasil
 
 Agora, vamos comparar desempenho do país inteiro nessa edição do ENEM.
 Começaremos com a média da nota em Ciências Humanas.
@@ -895,8 +892,7 @@ pouco mais adiante.
 
 ------------------------------------------------------------------------
 
-3. Sudeste
-----------
+## 3. Sudeste
 
 Partiremos para a análise da região Sudeste, que obteve boas médias em
 Ciências Humanas.  
@@ -978,8 +974,7 @@ Partiremos para São Paulo.
 
 ------------------------------------------------------------------------
 
-4. São Paulo
-------------
+## 4. São Paulo
 
 Irei criar uma nova variável, `enem2015_SP` que contém as escolas de São
 Paulo.
@@ -1416,8 +1411,7 @@ ensino médio, os alunos de ETEC’s se destacam.
 
 ------------------------------------------------------------------------
 
-5. Conclusão
-------------
+## 5. Conclusão
 
 A educação no Brasil, de fato, não é democrática. Vimos que os estados
 possuem desempenhos bem diferentes na maior prova do país. Ademais, o
