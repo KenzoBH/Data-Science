@@ -1,4 +1,4 @@
-**Sobre o Sistema Educacional e Ambientes - R**
+**Sobre o Sistema Educacional e Ambientes**
 ==================================================
 
 O **Exame Nacional do Ensino Médio**, ou
