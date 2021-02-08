@@ -14,7 +14,7 @@ preventivas para a realização do exame e a maior abstenção da história:
 [mais da metade dos candidatos não foram realizar o
 exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm). 
 
-![](a_files/divulgado-edital-com-as-regras-da-realizacao-do-exame-nacional-do-ensino-medio-enem-2020-impresso-290506-article.jpeg)
+![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide2.PNG)
 
 De fato, trata-se de uma grande experiência na vida do estudante
 brasileiro que busca uma vaga na universidade, visto que o ENEM é uma
