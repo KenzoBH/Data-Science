@@ -17,7 +17,8 @@ Um apaixonado por Matemática e um futuro cientista de dados.
 *Nascimento* 22/08/2003  
 *Telefone* 11 94535-9941  
 *E-mail*
-<a href="mailto:brunokenzoh@gmail.com" class="email">brunokenzoh@gmail.com</a>
+<a href="mailto:brunokenzoh@gmail.com" class="email">brunokenzoh@gmail.com</a>   
+*LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)
 
 ## **Formação**
 
