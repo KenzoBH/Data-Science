@@ -39,7 +39,7 @@ Desenvolvimento do módulo SAMplus do satélite SOAR com bolsa FAPESP, sob
 orientação e supervisão de profissionais.
 
 ### **Estágio - Técnico em Eletrônica** (março/2020 - agosto/2020)  
-*Etec Getúlio Vargas*  
+*ETEC Getúlio Vargas*  
 Estágio relacionado às instalações elétricas da Escola Técnica, com
 supervisão de profissionais experientes.
 
