@@ -36,6 +36,7 @@ suas escolas, muitos buscam fazer cursinhos preparatórios para o ENEM.
 Veremos a seguir as relações entre a natureza da escola com o desempenho
 de seus estudantes. Como o ambiente influencia no futuro do candidato?
 Influencia de fato? Veremos!  
+
 \*\*\*
 
 Primeiro, vamos importar as bibliotecas que iremos utilizar. A
