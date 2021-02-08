@@ -12,7 +12,9 @@ que acarretou em adiação da prova, diversas
 [medidas](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/orientacoes/medidas-de-prevencao-a-covid-19)
 preventivas para a realização do exame e a maior abstenção da história:
 [mais da metade dos candidatos não foram realizar o
-exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm).   
+exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm). 
+
+![](divulgado-edital-com-as-regras-da-realizacao-do-exame-nacional-do-ensino-medio-enem-2020-impresso-290506-article.jpeg)
 
 De fato, trata-se de uma grande experiência na vida do estudante
 brasileiro que busca uma vaga na universidade, visto que o ENEM é uma
