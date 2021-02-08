@@ -58,7 +58,7 @@ Influencia de fato? Veremos!
     2. [São Paulo capital: a geografia na nota](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#4-s%C3%A3o-paulo)
     3. [Sobre as públicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#43-sobre-as-p%C3%BAblicas)
     4. [Sobre as escolas técnicas](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#44-sobre-as-escolas-t%C3%A9cnicas)    
-5. [Conclusão](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#44-sobre-as-escolas-t%C3%A9cnicas)
+5. [Conclusão](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#5-conclus%C3%A3o)
 
 ***
 
