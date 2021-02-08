@@ -1,6 +1,6 @@
-\#Data-Science: portfólio de projetos
+#Data-Science: portfólio de projetos
 
-\#\#Projetos
+##Projetos
 
 Projetos em Linguagem R:
 
