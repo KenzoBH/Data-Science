@@ -28,7 +28,7 @@ participantes relativas às suas notas no exame.
 
 A prova é realizada em dois dias: um reservado para as disciplinas de
 Ciências Humanas, Linguagens e a Redação, e outro dia para Matemática e
-Ciências da Natureza (atualmente a prova segue sse padrão, mas já foi
+Ciências da Natureza (atualmente a prova segue esse padrão, mas já foi
 diferente, e pode ser diferente no momento de sua leitura).   
 
 Neste artigo, a gente vai explorar um pouco os dados - disponibilizados
