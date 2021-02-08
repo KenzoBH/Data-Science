@@ -46,10 +46,10 @@ Influencia de fato? Veremos!
 
 ## Sumário
 
-1. Importação do dataset
-2. Brasil
-    [1. Desempenho por estado: qual o melhor estado em Ciências Humanas?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#21-desempenho-por-estado-qual-o-melhor-estado-em-ci%C3%AAncias-humanas)
-    2. Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?
+1. [Importação do dataset]()
+2. [Brasil]
+    1.[Desempenho por estado: qual o melhor estado em Ciências Humanas?](https://github.com/KenzoBH/Data-Science/blob/main/ENEM/ENEM.md#21-desempenho-por-estado-qual-o-melhor-estado-em-ci%C3%AAncias-humanas)
+    2. [Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?]()
 3. Sudeste
     1. Desempenho no sudeste: SP é o melhor estado no ENEM?
     2. Desempenho no sudeste por tipo adminstrativo: como são as federais?
