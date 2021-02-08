@@ -47,16 +47,18 @@ Influencia de fato? Veremos!
 ## Sumário
 
 1. Importação do dataset
-2. Desempenho por estado: qual o melhor estado em Ciências Humanas?
-3. Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?
-4. Desempenho no sudeste: SP é o melhor estado no ENEM?
-5. Desempenho no sudeste por tipo adminstrativo: como são as federais?
-6. São Paulo
+2. Brasil
+    1. Desempenho por estado: qual o melhor estado em Ciências Humanas?
+    2. Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?
+3. Sudeste
+    1. Desempenho no sudeste: SP é o melhor estado no ENEM?
+    2. Desempenho no sudeste por tipo adminstrativo: como são as federais?
+4. São Paulo
     1. Desempenho pela localização: escolas urbanas e rurais
     2. São Paulo capital: a geografia
     3. Sobre as públicas
     4. Sobre as escolas técnicas    
-7. Conclusão
+5. Conclusão
 
 ***
 
@@ -621,8 +623,18 @@ Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 </tbody>
 </table>
 
-Primeiramente, como se dá as médias dos estados na prova de Ciências
-Humanas?
+Dados prontos! (Na verdade, ainda não: veremos que algumas colunas ainda deverão ser manipuladas).
+
+***
+
+## 2. Brasil
+
+Agora, vamos comparar desempenho do país inteiro nessa edição do ENEM. Começaremos com a média da nota em Ciências Humanas. 
+
+### 2.1. Desempenho por estado: qual o melhor estado em Ciências Humanas?
+
+Como se dá as médias dos estados na prova de Ciências
+Humanas? Quais suas expectativas?
 
     kable(
       enem2015 %>% 
@@ -750,8 +762,8 @@ Humanas?
 </tbody>
 </table>
 
-Atingiu suas expectativas? Vemos um destaque no Distrito Federal, dos
-estados do Sudeste e do Sul. Essas notas são boas, afinal? São tão
+Atingiu o que você esperava? **Vemos um destaque do Distrito Federal, dos
+estados do Sudeste e do Sul**. Essas notas são boas, afinal? São tão
 distantes?  
 Para termos uma noção, a nota de corte para o curso de Medicina na
 Universidade de São Paulo [chegou aos 920
@@ -766,11 +778,9 @@ corte](https://querobolsa.com.br/sisu/notas-de-corte/faculdades/universidade-de-
 dessa mesma edição, para o curso de Lazer e Turismo Noturno.  
 Vamos continuar nossa análise!  
 
-***
+### 2.2 Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?
 
-### Tipo Adminitrativo
-
-Agora, veremos se o tipo administrativo da escola está relacionada com o
+Agora, veremos se o tipo administrativo da escola está relacionado com o
 desempenho dos alunos.  
 Primeiramente, vejamos a quantidade de escolas por tipo administrativo.
 
@@ -861,25 +871,30 @@ de Matemática. Faça suas apostas.
 
 ![](a_files/figure-markdown_strict/matemática%20por%20tipo%20administrativo-1.png)
 
-A melhor escola do país é uma escola privada - já veremos qual é - e a
+**A melhor escola do país é uma escola privada**, e a
 pior é uma municipal. Nota-se uma distribuição um pouco parecida entre
 as escolas federais e privadas - com exceção de privadas com excelente
 desempenho. As federais são ótimas escolas. Até certo tempo, havia um
 processo seletivo baseado em uma prova - vestibulinho - para o ingresso
 dos alunos. Porém, foi substituída pela análise do histórico escolar dos
 alunos.  
-Parece que a existência de um processo seletivo aumenta o desempenho dos
-alunos. Pois, apesar de serem escolas públicas, as federais apresentam
+Parece que a *existência de um processo seletivo aumenta o desempenho dos
+alunos*. Pois, apesar de serem escolas públicas, as federais apresentam
 um melhor desempenho. Veremos essa ideia se concretizando um pouco mais
 adiante.
 
-### Sudeste
+***
+
+## 3. Sudeste
 
 Partiremos para a análise da região Sudeste, que obteve boas médias em
 Ciências Humanas.  
 Irei criar uma nova variável, `enem2015_sud`, referente às escolas do
 sudeste (pertencentes ao Espírito Santo, Minas Gerais, Rio de Janeiro ou
 São Paulo).  
+
+### 3.1 Desempenho no sudeste: SP é o melhor estado no ENEM?
+
 Como é a distribuição de cada estado em redação?
 
     enem2015_sud <- filter(enem2015, SG_UF_ESCOLA%in%c("ES", "MG", "RJ", "SP"))
@@ -893,7 +908,10 @@ Como é a distribuição de cada estado em redação?
 ![](a_files/figure-markdown_strict/filtro%20sudeste-1.png)
 
 O Espírito Santo apresenta um desempenho um pouco abaixo dos demais
-estados. No sudeste, a melhor escola em redação foi do Rio de Janeiro.  
+estados. **No sudeste, a melhor escola em redação foi do Rio de Janeiro**. 
+
+### 3.2 Desempenho no sudeste por tipo adminstrativo: como são as federais?
+
 Vamos ver como se dá a relação com os tipos administrativos em cada
 estado.
 
@@ -908,7 +926,7 @@ estado.
 
 ![](a_files/figure-markdown_strict/sudeste%20e%20tipo%20administrativo-1.png)
 
-Novamente, as federais se destacam em relação às outras públicas, e
+Novamente, **as federais se destacam em relação às outras públicas**, e
 acabam superando as privadas no Espírito Santo e no Rio de Janeiro.  
 Em Minas Gerais, a diferença entre as privadas com as municipais e
 estaduais é mais evidente que nos outros estados. Porém, não devido ao
@@ -947,10 +965,13 @@ Bem, não encontrei nenhuma razão para isso, mas é um bom
 questionamento.  
 Partiremos para São Paulo.
 
-### São Paulo
+## 4. São Paulo
 
 Irei criar uma nova variável, `enem2015_SP` que contém as escolas de São
 Paulo.  
+
+### 4.1. Desempenho pela localização: escolas urbanas e rurais
+
 Vamos ver a distribuição pela localidade da escola (urbana ou rural)
 
     enem2015_SP <- filter(enem2015, SG_UF_ESCOLA == "SP")
@@ -992,8 +1013,11 @@ Natureza.
 
 ![](a_files/figure-markdown_strict/por%20localização-1.png)
 
-O desempenho médio das urbanas supera - um pouco - as das escolas
-rurais.  
+**O desempenho médio das urbanas supera - um pouco - as das escolas
+rurais.**  
+
+### 4.2 São Paulo capital: a geografia na nota
+
 Vejamos agora o desempenho em redação em São Paulo. Qual a média no
 estado?  
 *O tema desse ano foi: “A PERSISTÊNCIA DA VIOLÊNCIA CONTRA A MULHER NA
@@ -1132,12 +1156,12 @@ analisarmos.
 </tbody>
 </table>
 
-Vemos que a melhor escola de São Paulo em redação é de Ribeirão Preto,
+Vemos que **a melhor escola de São Paulo em redação é de Ribeirão Preto**,
 que teve ótimos rendimentos nas outras provas também.  
 Mais abaixo, vemos a escola *Liceu de Artes e Ofícios de São Paulo
 Escola Técnica*, em quinto lugar, onde eu estudei :D  
 Eu não estudava lá ainda em 2015. Acho que se eu tivesse a escola não
-estaria em quinto lugar.  
+estaria em quinto lugar :p  
 Vemos muitas escolas do interior. Quantas são nas melhores?
 
     SP_melhores %>% 
@@ -1166,8 +1190,11 @@ Como é a distribuição para todas as escolas de São Paulo? Vejamos.
 ![](a_files/figure-markdown_strict/quantas%20no%20total%20são%20da%20capital-1.png)
 
 Vemos que dentre todas as escolas de São Paulo, a proporção de escolas
-na capital diminui. O que evidencia que as escolas da capital tem melhor
-desempenho em redação.  
+na capital diminui. O que evidencia que **as escolas da capital tem melhor
+desempenho em redação.**
+
+### 4.3 Sobre as públicas
+
 Vejamos as melhores públicas, que não apareceram dentre as 5 melhores de
 São Paulo.
 
@@ -1297,7 +1324,10 @@ São Paulo.
 </table>
 
 Vemos o destaque daquelas do interior também. Porém, há algo comum a
-**todas** elas: são colégios técnicos ou federais.  
+**todas** elas: são colégios técnicos ou federais. 
+
+### 4.4. Sobre as escolas técnicas
+
 Vamos analisar os colégios técnicos - em São Paulo, há escolas técnicas
 estaduais, ou [ETEC’s](https://www.cps.sp.gov.br/category/etec/).  
 Adicionei uma coluna ao nosso *dataframe*, chamada de “Tecnica”, que
@@ -1386,8 +1416,7 @@ colégio técnico.
 Apesar das dificuldades e demandas de um ensino técnico integrado ao
 ensino médio, os alunos de ETEC’s se destacam.
 
-Conclusão
-=========
+## 5. Conclusão
 
    A educação no Brasil, de fato, não é democrática. Vimos que os estados
 possuem desempenhos bem diferentes na maior prova do país. Ademais, o
