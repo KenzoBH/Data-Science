@@ -44,6 +44,24 @@ Influencia de fato? Veremos!
 
 ***
 
+## Sumário
+
+1. Importação do dataset
+2. Desempenho por estado: qual o melhor estado em Ciências Humanas?
+3. Desempenho por tipo administrativo: escolas privadas vão melhor no ENEM?
+4. Desempenho no sudeste: SP é o melhor estado no ENEM?
+5. Desempenho no sudeste por tipo adminstrativo: como são as federais?
+6. São Paulo
+    1. Desempenho pela localização: escolas urbanas e rurais
+    2. São Paulo capital: a geografia
+    3. Sobre as públicas
+    4. Sobre as escolas técnicas    
+7. Conclusão
+
+***
+
+## 1. Importação do dataset
+
 Primeiro, vamos importar as bibliotecas que iremos utilizar. A
 biblioteca `tidyverse` será responsável pela manipulação e visualização
 dos dados, enquanto que a `knitr` apenas para a melhor exposição das
@@ -474,11 +492,6 @@ Irei selecionar apenas algumas colunas para nossa análise.
     Regular.
 -   **NU\_MEDIA\_RED**: Média das notas de Redação do Ensino Médio
     Regular.
-
-------------------------------------------------------------------------
-
-**ENEM 2015**
--------------
 
 Como iremos fazer a análise apenas do ENEM 2015, irei filtrar a coluna
 “NU\_ANO” para recuperar as observações, que correspondem a uma escola, referentes apenas ao desempenho no exame de 2015. Nosso novo
