@@ -13,8 +13,7 @@ ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)
 Um apaixonado por Matemática e um futuro cientista de dados.   
 17 anos, vestibulando e Técnico em Eletrônica.
 
-*Nascimento* 22/08/2003  
-*Telefone* 11 94535-9941  
+*Nascimento* 22/08/2003   
 *E-mail*
 <a href="mailto:brunokenzoh@gmail.com" class="email">brunokenzoh@gmail.com</a>   
 *LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)
