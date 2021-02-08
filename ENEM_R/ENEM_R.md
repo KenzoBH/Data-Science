@@ -1171,7 +1171,7 @@ Vemos que **a melhor escola de São Paulo em redação é de Ribeirão Preto**,
 que teve ótimos rendimentos nas outras provas também.  
 Mais abaixo, vemos a escola *Liceu de Artes e Ofícios de São Paulo
 Escola Técnica*, em quinto lugar, onde eu estudei :D  
-Eu não estudava lá ainda em 2015. Acho que se eu tivesse a escola não
+Eu não estudava lá ainda em 2015. Acho que se eu tivesse, a escola não
 estaria em quinto lugar :p  
 Vemos muitas escolas do interior. Quantas são nas melhores?
 
@@ -1200,7 +1200,7 @@ Como é a distribuição para todas as escolas de São Paulo? Vejamos.
 
 ![](a_files/figure-markdown_strict/quantas%20no%20total%20são%20da%20capital-1.png)
 
-Vemos que dentre todas as escolas de São Paulo, a proporção de escolas
+Vemos que, dentre todas as escolas de São Paulo, a proporção de escolas
 na capital diminui. O que evidencia que **as escolas da capital tem melhor
 desempenho em redação.**
 
