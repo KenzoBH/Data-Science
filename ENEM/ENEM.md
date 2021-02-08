@@ -6,12 +6,14 @@ O **Exame Nacional do Ensino Médio**, ou
 ocorre todo ano - desde 1998 - e é a maior prova do Brasil, com cerca de
 [5 milhões de inscrições por
 ano](http://portal.inep.gov.br/artigo/-/asset_publisher/B4AQV9zFY7Bv/content/5-8-milhoes-estao-inscritos-para-fazer-o-enem-2020/21206#:~:text=Finalizadas%20as%20etapas%20de%20inscri%C3%A7%C3%A3o,Ensino%20M%C3%A9dio%20(Enem)%202020.).   
+
 Nesse último ano, a prova foi um pouco diferente, devido ao coronavírus,
 que acarretou em adiação da prova, diversas
 [medidas](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/orientacoes/medidas-de-prevencao-a-covid-19)
 preventivas para a realização do exame e a maior abstenção da história:
 [mais da metade dos candidatos não foram realizar o
 exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm).   
+
 De fato, trata-se de uma grande experiência na vida do estudante
 brasileiro que busca uma vaga na universidade, visto que o ENEM é uma
 porta de entrada para diversas faculdades acerca do país - além de ser o
@@ -21,15 +23,18 @@ oferecem vagas exclusivas para o exame, pelo
 [SiSU](https://sisu.mec.gov.br/) (Sistema de Seleção Unificada), e
 diversas universidades particulares oferecem bolsas de estudos aos
 participantes relativas às suas notas no exame.   
+
 A prova é realizada em dois dias: um reservado para as disciplinas de
 Ciências Humanas, Linguagens e a Redação, e outro dia para Matemática e
 Ciências da Natureza (atualemente a prova segue sse padrão, mas já foi
 diferente, e pode ser diferente no momento de sua leitura).   
+
 Neste artigo, a gente vai explorar um pouco os dados - disponibilizados
 pelo próprio [Inep](https://enem.inep.gov.br/participante/), órgão
 responsável pelo exame - relativos aos exames de 2007 a 2015 organizados
 por escola. Os dados foram baixados neste
 [link](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola).   
+
 É notável, portanto, que a escola em que o candidato estudou tem forte
 influência no seu desempenho. Muitas vezes, com um ensino não tão bom em
 suas escolas, muitos buscam fazer cursinhos preparatórios para o ENEM.   
