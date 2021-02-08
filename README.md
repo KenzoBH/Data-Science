@@ -59,7 +59,7 @@ supervisão de profissionais experientes.
 *Avançada*
 
 **Aulas particulares de Matemática**   
-*Projeto autoral: @Exaticando*
+*Projeto autoral: [@Exaticando](instagram.com/exaticando)*
 
 **Pacote Office**   
 *PowerPoint avançado*   
