@@ -1,7 +1,5 @@
 # **Data Science: portfólio de projetos**
 
-Aqui se encontram meus projetos desenvolvidos relacionados à ciência de dados, e um pouco sobre mim.
-
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide1.PNG)
 
 # **Projetos**
