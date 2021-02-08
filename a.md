@@ -4,21 +4,6 @@
 Introdução, link:
 <a href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola" class="uri">https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem-por-escola</a>
 
-    library(tidyverse)
-
-    ## -- Attaching packages ---------------------------------------------------------- tidyverse 1.3.0 --
-
-    ## v ggplot2 3.3.2     v purrr   0.3.4
-    ## v tibble  3.0.2     v dplyr   1.0.0
-    ## v tidyr   1.1.0     v stringr 1.4.0
-    ## v readr   1.3.1     v forcats 0.5.0
-
-    ## -- Conflicts ------------------------------------------------------------- tidyverse_conflicts() --
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
-
-    library(knitr)
-
 descrição do conjunto de dados
 
     enem <- read.csv("MICRODADOS_ENEM_ESCOLA.csv", sep=';')
@@ -664,6 +649,8 @@ Desejo fazer a análise apenas de 2015
     ## 3                         3       109
     ## 4                         4      6325
 
+conversão
+
     enem2015$TP_DEPENDENCIA_ADM_ESCOLA <- factor(enem2015$TP_DEPENDENCIA_ADM_ESCOLA)
     levels(enem2015$TP_DEPENDENCIA_ADM_ESCOLA) <- c("Federal","Municipal","Estadual","Privada")
 
@@ -698,14 +685,6 @@ Desejo fazer a análise apenas de 2015
 </tr>
 </tbody>
 </table>
-
-    enem2015 %>% 
-      ggplot(aes(x = TP_DEPENDENCIA_ADM_ESCOLA, y = NU_MEDIA_MT,
-                 fill = TP_DEPENDENCIA_ADM_ESCOLA)) +
-      geom_boxplot(show.legend = FALSE) +
-      labs(title = "Desempenho em Matemática (ENEM 2015) por Tipo Administrativo",
-           x = "Tipo Administrativo", y = "Média da Escola") +
-      theme_bw()
 
 ![](a_files/figure-markdown_strict/matemática%202015%20por%20tipo%20administrativo-1.png)
 
