@@ -1153,8 +1153,7 @@ Vemos que **a melhor escola de São Paulo em redação é de Ribeirão
 Preto**, que teve ótimos rendimentos nas outras provas também.  
 Mais abaixo, vemos a escola *Liceu de Artes e Ofícios de São Paulo
 Escola Técnica*, em quinto lugar, onde eu estudei :D  
-Eu não estudava lá ainda em 2015. Acho que se eu tivesse, a escola não
-estaria em quinto lugar :p  
+Eu não estudava lá ainda em 2015.
 Vemos muitas escolas do interior. Quantas são nas melhores?
 
     SP_melhores %>% 
