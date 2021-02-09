@@ -45,7 +45,7 @@ supervisão de profissionais experientes.
 
 ## **Extracurricularidades**
 
-**HackerRank**  
+[**HackerRank**](https://www.hackerrank.com/brunokenzoh)  
 *Python Silver Star*
 
 **Língua Inglesa**  
