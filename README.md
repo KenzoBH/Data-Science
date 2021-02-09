@@ -1,6 +1,6 @@
 # **Data Science: portfólio de projetos**
 
-![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide1.PNd)
+![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide1.PNG)
 
 # **Sobre Ciência de Dados**
 
