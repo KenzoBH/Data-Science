@@ -4,7 +4,7 @@
 
 # **Sobre Ciência de Dados**
 
-### **R (PT/BR)**
+### **R (PT-BR)**
   - [**Análise Exploratória de Dados do
 ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)   
 *Sobre o Sistema Educacional e Ambientes*
