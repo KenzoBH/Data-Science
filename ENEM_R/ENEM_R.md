@@ -989,14 +989,6 @@ Vamos ver a distribuição pela localidade da escola (urbana ou rural)
       group_by(TP_LOCALIZACAO_ESCOLA) %>% 
       summarise(N_ESCOLAS = n())
 
-    ## Warning: `...` is not empty.
-    ## 
-    ## We detected these problematic arguments:
-    ## * `needs_dots`
-    ## 
-    ## These dots only exist to allow future extensions and should be empty.
-    ## Did you misspecify an argument?
-
     ## # A tibble: 2 x 2
     ##   TP_LOCALIZACAO_ESCOLA N_ESCOLAS
     ##                   <int>     <int>
