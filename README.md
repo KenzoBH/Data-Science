@@ -5,7 +5,7 @@
 # **Sobre Ciência de Dados**
 
 ### **Python (EN)**
-  - [**Exploratory ENEM Data Analysis**](https://nbviewer.jupyter.org/github/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_Python.ipynb)   
+  - [**Exploratory ENEM Data Analysis**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_Python.ipynb)   
   *Over the Educational System and Environments*
 
 ### **R (PT-BR)**
