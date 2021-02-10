@@ -6,7 +6,7 @@
 
 ### **Python (EN)**
   - [**Exploratory Data Analysis**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_Python.ipynb)   
-  *Over the Educational System and Environments
+  *Over the Educational System and Environments*
 
 ### **R (PT-BR)**
   - [**Análise Exploratória de Dados do
