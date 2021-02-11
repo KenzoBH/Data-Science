@@ -14,6 +14,8 @@ preventivas para a realização do exame e a maior abstenção da história:
 [mais da metade dos candidatos não foram realizar o
 exame](https://educacao.uol.com.br/noticias/2021/01/17/mec-culpa-medo-da-covid-19-e-midia-contra-por-abstencao-de-515-no-enem.htm).
 
+Se estiver lendo pelo celular, mude nas configurações da guia (os três pontinhos) e alterne "Para computador", para melhorar a visualização :D
+
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide2.PNG)
 
 De fato, trata-se de uma grande experiência na vida do estudante
