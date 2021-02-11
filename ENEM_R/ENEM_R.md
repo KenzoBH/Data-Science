@@ -1422,4 +1422,6 @@ Espero que nossa análise te faça pensar um pouco sobre nosso sistema
 educacional, e como ele impacta o futuro do nosso país.
 
 Obrigado pela leitura!  
-*Kenzo.*
+*Kenzo.*   
+
+Meu portfólio: [link](https://github.com/KenzoBH/Data-Science)
