@@ -38,7 +38,7 @@ abordados em aulas práticas e teóricas.
 
 ### **Apoio de Eletrônica para Projetos de Instrumentação Astronômica** (dezembro/2020 – atual)  
 *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
-Desenvolvimento do módulo SAMplus do satélite SOAR com bolsa FAPESP, sob
+Desenvolvimento do módulo SAMplus do telescópio SOAR com bolsa FAPESP, sob
 orientação e supervisão de profissionais.
 
 ### **Estágio - Técnico em Eletrônica** (março/2020 - agosto/2020)  
