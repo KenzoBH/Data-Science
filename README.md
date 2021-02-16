@@ -62,3 +62,13 @@ supervisão de profissionais experientes.
 *PowerPoint avançado*   
 *Word e Excel básicos*
 
+**Cursos**   
+*Data Science: R Basics; HarvardX*   
+*Pandas; kaggle*   
+*Data Cleaning; kaggle*   
+*Intro to Machine Learning; kaggle*
+
+**Bibliografias**   
+*R for Data Science; Hadley Wickham & Garrett Grolemund*   
+*Como Mentir com Estatística; Darrel Huff*   
+*Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5, ; Gelson Iezzi & outros autores*
