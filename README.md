@@ -71,4 +71,4 @@ supervisão de profissionais experientes.
 **Bibliografias**   
 *R for Data Science; Hadley Wickham & Garrett Grolemund*   
 *Como Mentir com Estatística; Darrel Huff*   
-*Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5, ; Gelson Iezzi & outros autores*
+*Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5; Gelson Iezzi & outros autores*
