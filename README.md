@@ -5,11 +5,13 @@
 # **Sobre Ciência de Dados**
 
 ### **Python (EN)**
+  - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
+  [*@RegressTrio*](https://twitter.com/RegressTrio)   
+  
   - [**Exploratory Data Analysis: ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_by_school_EDA_Python.ipynb)   
   *Over the Educational System and Environments*   
   
-  - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
-  [*@TrioRegress*](https://twitter.com/TrioRegress)
+  
 
 ### **R (PT-BR)**
   - [**Análise Exploratória de Dados do
