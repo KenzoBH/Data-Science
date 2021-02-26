@@ -9,7 +9,7 @@
   *Over the Educational System and Environments*   
   
   - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
-  [*Trio Regress*](https://twitter.com/TrioRegress)
+  [*@TrioRegress*](https://twitter.com/TrioRegress)
 
 ### **R (PT-BR)**
   - [**Análise Exploratória de Dados do
