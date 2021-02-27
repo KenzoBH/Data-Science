@@ -4,7 +4,7 @@
 
 # Overview   
 
-This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market.   
+This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday.   
 Technologies and packages used:
 - pandas, NumPy, matplotlib and seaborn for Data Analysis;
 - requests for Data Scraping;
