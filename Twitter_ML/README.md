@@ -6,10 +6,10 @@
 
 This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday.   
 Technologies and packages used:
-- pandas, NumPy, matplotlib and seaborn for Data Analysis;
-- requests for Data Scraping;
-- sklearn for modeling;
-- tweepy for Twitter Bot;
-- pythonanywhere for deploy.
+- Data Analysis: pandas, NumPy, matplotlib and seaborn
+- Web Scraping: requests
+- Modeling: sklearn
+- Twitter Bot: Tweepy
+- Deploy: pythoneverywhere
 
 You can see the final project [here](https://twitter.com/RegressTrio) (the Twitter account of Regress).
