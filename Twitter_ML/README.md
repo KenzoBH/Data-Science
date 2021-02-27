@@ -12,4 +12,4 @@ Technologies and packages used:
 - tweepy for Twitter Bot;
 - pythonanywhere for deploy.
 
-You can see the final project [here](https://twitter.com/RegressTrio) (the Twitter accout of Regress).
+You can see the final project [here](https://twitter.com/RegressTrio) (the Twitter account of Regress).
