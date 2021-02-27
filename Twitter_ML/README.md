@@ -10,4 +10,5 @@ Technologies and packages used:
 - requests for Data Scraping;
 - sklearn for modeling;
 - tweepy for Twitter Bot;
-- pythonanywhere for deploy.
+- pythonanywhere for deploy.   
+You can see the final project [here](https://twitter.com/RegressTrio) (the Twitter accout of Regress).
