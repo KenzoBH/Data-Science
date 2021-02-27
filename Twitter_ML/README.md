@@ -20,4 +20,7 @@ The models were chosen based on their RMSE (Root Mean Squared Error) over the th
 They beat the other models (Ridge Regression and Random Forest) and the stipulated baseline, that predicted the average of the training data for the new days.   
 The models are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressTrio](https://twitter.com/RegressTrio) account on Twitter.
 
-## Results
+-------------------------
+
+My Data Science portfolio: [link](https://github.com/KenzoBH/Data-Science)
+My LinkedIn: [link](https://www.linkedin.com/in/bruno-kenzo/)
