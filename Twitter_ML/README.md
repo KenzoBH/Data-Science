@@ -22,5 +22,5 @@ The models are trained everyday with new data, that is scraped off the [Yahoo Fi
 
 -------------------------
 
-My Data Science portfolio: [link](https://github.com/KenzoBH/Data-Science)
+My Data Science portfolio: [link](https://github.com/KenzoBH/Data-Science)   
 My LinkedIn: [link](https://www.linkedin.com/in/bruno-kenzo/)
