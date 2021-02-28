@@ -142,7 +142,7 @@ while True:
         companies = read_file(companies_file)
         for company in companies:
             original_df = get_original_df(company = company)
-            df = cleaned_original_df(original_df  = original_df)
+            df = cleaned_original_df(original_df  = original_df).tail(50)
             
             # Adds a new variable, 'Next Day Close'
             df['Next Day Close'] = df['Close'].shift(-1)
