@@ -18,7 +18,7 @@ You can see the final project [here](https://twitter.com/RegressTrio) (the Twitt
 
 - `Models_Selection.ipynb`: Jupyter notebook that I used to choose the best models and set their hyperparameters
 - `regress_bot.py`: Python program that is running in [PythonAnywhere](https://www.pythonanywhere.com/), and contains the bot code and the models training
-- `companies_txt`and `last_mention_id.txt`: Text files used by the Regress Bot to store the companies that it predicts and tweets, and the last tweet that mentioned it's account (better explained on `regress_bot.py` logic and comments).
+- `companies_txt`and `last_mention_id.txt`: Example of text files used by the Regress Bot to store the companies that it predicts and tweets, and the last tweet that mentioned it's account (better explained on `regress_bot.py` logic and comments).
 
 ## Methods
 
