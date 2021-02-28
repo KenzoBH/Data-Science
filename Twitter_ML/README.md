@@ -1,4 +1,5 @@
-# **Twitter Bot for Machine Learning: Stock Predictions**
+# **Twitter Bot for Machine Learning: Stock Predictions**   
+If you're reading this in your cellphone, in the configurations of your browser - the three dots - switch your viewing "to computer", to improve the visualization :D
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Regress.jpg)
 
