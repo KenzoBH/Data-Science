@@ -6,8 +6,7 @@ If you're reading this in your cellphone, you can switch your viewing "to comput
 
 This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday.   
 Technologies and packages used:
-- Data Analysis: pandas, NumPy, matplotlib and seaborn
-- Web Scraping: pandas
+- Web Scraping: pandas and NumPy
 - Modeling: sklearn
 - Twitter Bot: Tweepy
 - Deploy: PythonAnywhere
