@@ -22,7 +22,7 @@ You can see the final project [here](https://twitter.com/RegressTrio) (the Twitt
 
 ## Methods
 
-The models were chosen based on their RMSE (Root Mean Squared Error) over the the historical data of POMO4 company stock. The details of this selection is [here]() - `Models_Selection.ipynb` file -, where it's explained the whole proccess. Anyway, the best models were the Stochastic Gradient Descent (aka SGD and Satoshi Gaara Daisuke 🙇🏼‍♂️), Linear Support Vector Regression (aka SVR and Sophia Victoria Resende 🙆🏻‍♀️) and the Random Forest (aka RandomF and Rannah dom Fontes) :D   
+The models were chosen based on their RMSE (Root Mean Squared Error) over the the historical data of POMO4 company stock. The details of this selection is [here]() - `Models_Selection.ipynb` file -, where it's explained the whole proccess. Anyway, the best models were the Stochastic Gradient Descent (aka SGD and Satoshi Gaara Daisuke 🙇🏼‍♂️), Linear Support Vector Regression (aka SVR and Sophia Victoria Resende 🙆🏻‍♀️) and the Random Forest (aka RF and Rannah dom Fontes) :D   
 They beat the other models (Ridge Regression and Linear Regression) and the stipulated baseline, that predicted the average of the training data for the new days.   
 
 The models are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressTrio](https://twitter.com/RegressTrio) account on Twitter.
