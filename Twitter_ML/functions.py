@@ -42,8 +42,7 @@ def get_df(company, link):
 
     today_data = df.iloc[0]
     today_data[['Open', 'High', 'Low', 'Close*', 'Volume']] = today_data[['Open', 'High', 'Low', 'Close*', 'Volume']].astype('float')
-    print(today_data)
-
+    
     df = df.iloc[1:]
     df[['Open', 'High', 'Low', 'Close*', 'Volume']] = df[['Open', 'High', 'Low', 'Close*', 'Volume']].astype('float')
     df['Next Day Close'] = df['Close*'].shift(1)
@@ -51,36 +50,30 @@ def get_df(company, link):
 
     return df, today_data, df['Next Day Close'], df['Next 5th Day Close']
 
-def add_labels(df):
-    df['Next Day Close'] = df['Close*'].shift(1)
-    df['Next 5th Day Close'] = df['Close*'].shift(5)
-    df = df.dropna()
-    df = df.reset_index().drop(['index'], axis = 1)
-
-    return df
-
-def fit_best_model(df, split_line, model, hp, range_hp, time, X, y, today_data):
-    X_train = df[:split_line].drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1)
-    X_test = df[split_line:].drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1)
+def fit_best_model(df, split_line, model, hp, range_hp, time, today_data):
+    df_train = df.dropna()
+    
+    X_train = df_train[split_line:].drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1)
+    X_test = df_train[:split_line].drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1)
     
     scaler = StandardScaler()
     X_train = scaler.fit_transform(X_train)
     X_test = scaler.transform(X_test)
 
-    y_1_train = df[:split_line]['Next Day Close']
-    y_1_test = df[split_line:]['Next Day Close']
+    y1_train = df_train[split_line:]['Next Day Close']
+    y1_test = df_train[:split_line]['Next Day Close']
 
-    y_5_train = df[:split_line]['Next 5th Day Close']
-    y_5_test = df[split_line:]['Next 5th Day Close']
+    y5_train = df_train[split_line:]['Next 5th Day Close']
+    y5_test = df_train[:split_line]['Next 5th Day Close']
     
     if time == 1:
-        train_data = y_1_train
-        test_data = y_1_test
+        train_data = y1_train
+        test_data = y1_test
     else:
-        train_data = y_5_train
-        test_data = y_5_test
+        train_data = y5_train
+        test_data = y5_test
     
-    metric_mdl = []
+    rmses_mdl = []
     for x in range_hp:
         if model == SGDRegressor or model == Ridge:
             mdl = model(alpha = x)
@@ -90,27 +83,27 @@ def fit_best_model(df, split_line, model, hp, range_hp, time, X, y, today_data):
             mdl = model(max_depth = x)
             
         mdl.fit(X_train, train_data)
-        pred_mdl = mdl.predict(X_test)
+        mdl_p = mdl.predict(X_test)
         
-        rmse_mdl = np.sqrt(mean_squared_error(test_data, pred_mdl))
-        metric_mdl.append([rmse_mdl, x])
+        rmse_mdl = np.sqrt(mean_squared_error(test_data, mdl_p))
+        rmses_mdl.append([rmse_mdl, x])
 
     if model == SGDRegressor or model == Ridge:
-        mdl = model(alpha = min(metric_mdl)[1])
+        mdl = model(alpha = min(rmses_mdl)[1])
     elif model == LinearSVR:
-        mdl = model(C = min(metric_mdl)[1])
+        mdl = model(C = min(rmses_mdl)[1])
     elif model == RandomForestRegressor:
-        mdl = model(max_depth = min(metric_mdl)[1])
+        mdl = model(max_depth = min(rmses_mdl)[1])
     
     scaler = StandardScaler()
     if time == 1:
-        X = X.drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1).dropna().iloc[1:]
-        X = scaler.fit_transform(X)
-        mdl.fit(X, y.dropna())
+        X = df.drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1).iloc[1:]
+        y = df['Next Day Close'].dropna()
     else:
-        df = df.drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1)
-        df = scaler.fit_transform(df)
-        mdl.fit(df, y.dropna())
+        X = df.drop(['Date', 'Next Day Close', 'Next 5th Day Close'], axis = 1).iloc[5:]
+        y = df['Next 5th Day Close'].dropna()
+    X = scaler.fit_transform(X)
+    mdl.fit(X, y)
     
     new_data = scaler.transform([today_data.drop('Date')])
     mdl_p = mdl.predict(new_data)[0]
