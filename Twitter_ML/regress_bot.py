@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from functions import read_file, write_file, verify_company, get_df, add_labels, fit_best_model
+from functions import read_file, write_file, verify_company, get_df, fit_best_model
 
 import pandas as pd
 import numpy as np
@@ -22,10 +22,10 @@ warnings.filterwarnings('ignore')
 
 # VARIABLES AND TWEETER KEYS --------------------
 
-CONSUMER_KEY = '0uyHpCxS1I8SKdNCgYLf2PS4G'
-CONSUMER_SECRET = 'Dw0gsC1WBw9jSDfkHvm4h2aqehdU5UFytUcb4Vp9yAyPABYnNc'
-ACCESS_KEY = '1365099323864862723-2w9OWWFhkCTNC7TKGapDTed8R7KU5S'
-ACCESS_SECRET = 'TVNUa1gtQGjD0dMuwnyahAINMyvsdrUKUxJUDqhoKTQpm'
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
+ACCESS_KEY = ''
+ACCESS_SECRET = ''
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
@@ -36,7 +36,7 @@ companies_file = 'companies.txt'
 last_id_file = 'last_mention_id.txt'
 sleep_time = 20
 n_tweets = 4
-prevision_time_hour = 5
+prevision_time_hour = 8
 prevision_time_minute = 0
 emojis = 'S, S e R'
 link = 'https://finance.yahoo.com/quote/{}/history?p={}'
@@ -107,7 +107,8 @@ while True:
     # MODELS AND PREDICTIONS TWEETS --------------------
 
     # If it's time to tweet (8h00 every day, except weekends), we tweet
-    if not((datetime.now().hour == prevision_time_hour) & (datetime.now().minute == prevision_time_minute) & (date.today().weekday() in [0, 1, 2, 3, 4])):
+    #  & (datetime.now().minute == prevision_time_minute)
+    if not((datetime.now().hour == prevision_time_hour) & (date.today().weekday() in [0, 1, 2, 3, 4])):
         print("It's not prevision time")
     else:
         print("It's prevision time")
@@ -116,17 +117,16 @@ while True:
             # Get the data from the link
             print('Getting the data from web...')
             df, today_data, y1, y5 = get_df(company, link)
-            df_to_fit = add_labels(df)
 
             # Finds the the best hyperparamteters for each model, and trains them - getting their predictions for today
             print('Training models...')
-            sgd1, sgd1_p = fit_best_model(df_to_fit, 40, SGDRegressor, 'alpha', np.arange(0.0001, 2, 0.0005), 1, df, y1, today_data)
-            svr1, svr1_p = fit_best_model(df_to_fit, 40, LinearSVR, 'C', np.arange(0.01, 2, 0.005), 1, df, y1, today_data)
-            rfr1, rfr1_p = fit_best_model(df_to_fit, 40, RandomForestRegressor, 'max_depth', np.arange(10, 100, 10), 1, df, y1, today_data)
+            sgd1, sgd1_p = fit_best_model(df, 10, SGDRegressor, 'alpha', np.arange(0.0001, 2, 0.0005), 1, today_data)
+            svr1, svr1_p = fit_best_model(df, 10, LinearSVR, 'C', np.arange(0.01, 2, 0.005), 1, today_data)
+            rfr1, rfr1_p = fit_best_model(df, 10, RandomForestRegressor, 'max_depth', np.arange(10, 100, 10), 1, today_data)
 
-            sgd5, sgd5_p = fit_best_model(df_to_fit, 40, SGDRegressor, 'alpha', np.arange(0.0001, 2, 0.0005), 5, df, y5, today_data)
-            svr5, svr5_p = fit_best_model(df_to_fit, 40, LinearSVR, 'C', np.arange(0.01, 2, 0.005), 5, df, y5, today_data)
-            rfr5, rfr5_p = fit_best_model(df_to_fit, 40, RandomForestRegressor, 'max_depth', np.arange(10, 100, 10), 5, df, y5, today_data)
+            sgd5, sgd5_p = fit_best_model(df, 10, SGDRegressor, 'alpha', np.arange(0.0001, 2, 0.0005), 5, today_data)
+            svr5, svr5_p = fit_best_model(df, 10, LinearSVR, 'C', np.arange(0.01, 2, 0.005), 5, today_data)
+            rfr5, rfr5_p = fit_best_model(df, 10, RandomForestRegressor, 'max_depth', np.arange(10, 100, 10), 5, today_data)
             
             today_close = round(float(list(today_data)[4]), 2)
 
