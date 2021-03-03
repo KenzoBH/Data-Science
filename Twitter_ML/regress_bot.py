@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from functions import read_file, write_file, verify_company, get_df, fit_best_model
+from functions import read_file, write_file, verify_company, get_df, fit_best_model, train_best_models, get_predictions, model_map
 
 import pandas as pd
 import numpy as np
@@ -13,7 +13,9 @@ from datetime import date, datetime
 
 from sklearn.linear_model import SGDRegressor, Ridge
 from sklearn.svm import LinearSVR
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error
 
@@ -38,7 +40,7 @@ sleep_time = 20
 n_tweets = 4
 prevision_time_hour = 8
 prevision_time_minute = 0
-emojis = 'S, S e R'
+emojis = 'Regress'
 link = 'https://finance.yahoo.com/quote/{}/history?p={}'
 
 # SEARCHING FOR MENTIONS ---------------------------
@@ -107,36 +109,42 @@ while True:
     # MODELS AND PREDICTIONS TWEETS --------------------
 
     # If it's time to tweet (8h00 every day, except weekends), we tweet
-    #  & (datetime.now().minute == prevision_time_minute)
-    if not((datetime.now().hour == prevision_time_hour) & (date.today().weekday() in [0, 1, 2, 3, 4])):
+    if not((datetime.now().hour == prevision_time_hour) & (datetime.now().minute == prevision_time_minute) & (date.today().weekday() in [0, 1, 2, 3, 4])):
         print("It's not prevision time")
     else:
         print("It's prevision time")
         companies = read_file(companies_file)
         for company in sorted(companies):
             # Get the data from the link
-            print('Getting the data from web...')
+            print('Getting the data from web ({})...'.format(company))
             df, today_data, y1, y5 = get_df(company, link)
-
-            # Finds the the best hyperparamteters for each model, and trains them - getting their predictions for today
-            print('Training models...')
-            sgd1, sgd1_p = fit_best_model(df, 10, SGDRegressor, 'alpha', np.arange(0.0001, 2, 0.0005), 1, today_data)
-            svr1, svr1_p = fit_best_model(df, 10, LinearSVR, 'C', np.arange(0.01, 2, 0.005), 1, today_data)
-            rfr1, rfr1_p = fit_best_model(df, 10, RandomForestRegressor, 'max_depth', np.arange(10, 100, 10), 1, today_data)
-
-            sgd5, sgd5_p = fit_best_model(df, 10, SGDRegressor, 'alpha', np.arange(0.0001, 2, 0.0005), 5, today_data)
-            svr5, svr5_p = fit_best_model(df, 10, LinearSVR, 'C', np.arange(0.01, 2, 0.005), 5, today_data)
-            rfr5, rfr5_p = fit_best_model(df, 10, RandomForestRegressor, 'max_depth', np.arange(10, 100, 10), 5, today_data)
-            
             today_close = round(float(list(today_data)[4]), 2)
 
-            # Tweets the predictions
+            print('Training models...')
+            # Calling a function that trains the models and get the best hyperparameters of each one - and returns the best 3 models
+            best_models1, best_models5 = fit_best_model([
+                SGDRegressor, Ridge, LinearSVR, DecisionTreeRegressor, RandomForestRegressor, AdaBoostRegressor, KNeighborsRegressor],
+                [np.arange(0.00001, 50, 0.05), np.arange(0.00002, 5, 0.05), np.arange(0.03, 15, 0.005),
+                np.arange(1, 1000, 10), np.arange(2, 100, 10), np.arange(3, 100, 10), np.arange(1, 20, 1)],
+                df)
+            
+            # Gettin their predictions
+            predictions1, predictions5 = train_best_models(best_models1, best_models5, df)
+            mdl1_1, mdl1_1_p, mdl1_2, mdl1_2_p, mdl1_3, mdl1_3_p, mdl5_1, mdl5_1_p, mdl5_2, mdl5_2_p, mdl5_3, mdl5_3_p = get_predictions(predictions1, predictions5)
+            
+            ps = [mdl1_1_p, mdl1_2_p, mdl1_3_p, mdl5_1_p, mdl5_2_p, mdl5_3_p]
+            mdls_names = [mdl1_1, mdl1_2, mdl1_3, mdl5_1, mdl5_2, mdl5_3]
+            mdls = []
+            for model in mdls_names:
+                mdls.append(model_map(model))
+
+            # Tweeting our predictions
             intro_tweets = ['Sobre {}, que fechou ontem com R$ {}, a gente tem umas previsões:\n'.format(company[:-3], today_close),
-                           '{} fechou ontem em R$ {}. Trouxemos nossas previsões para alguns dias pra você :D\n'.format(company[:-3], today_close),
-                           'Se liga nas nossa previsões pra {}, que fechou ontem em R$ {}\n'.format(company[:-3], today_close)]
-            predictions_text = "{}\n{}\nFechamento de hoje\n SGD: R$ {}\n SVR: R$ {}\n RandomF: R$ {}\n\nFechamento daqui 5 dias\n SGD: R$ {}\n SVR: R$ {}\n RandomF: R$ {}\n\n{}".format(
-            date.today(), random.choice(intro_tweets), sgd1_p, svr1_p, rfr1_p, sgd5_p, svr5_p, rfr5_p, emojis)
+                   '{} fechou ontem em R$ {}. Trouxemos nossas previsões para alguns dias pra você :D\n'.format(company[:-3], today_close),
+                   'Se liga nas nossa previsões pra {}, que fechou ontem em R$ {}\n'.format(company[:-3], today_close)]
+            predictions_text = "{}\n{}\nFechamento de hoje\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}\nFechamento daqui 5 dias\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}".format(date.today(), random.choice(intro_tweets), mdls[0], ps[0], mdls[1], ps[1], mdls[2], ps[2], mdls[3], ps[3], mdls[4], ps[4], mdls[5], ps[5])
             print('\n-----\nNew tweet:\n{}\n-----\n'.format(predictions_text))
             api.update_status(predictions_text)
+
         # Wait 60 seconds to don't get into a new loop in 8h00
         time.sleep(60)
