@@ -7,7 +7,7 @@ If you're reading this in your cellphone, you can switch your viewing "to comput
 This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday.   
 Technologies and packages used:
 - Web Scraping: pandas and NumPy
-- Modeling: sklearn
+- Machine Learning Models: sklearn
 - Twitter Bot: Tweepy
 - Deploy: PythonAnywhere
 
