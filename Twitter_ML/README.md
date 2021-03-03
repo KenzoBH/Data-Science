@@ -20,10 +20,9 @@ You can see the final project [here](https://twitter.com/RegressTrio) (the Twitt
 
 ## Methods
 
-The models were chosen based on their RMSE (Root Mean Squared Error) over the the historical data of POMO4 company stock. The best models were the Stochastic Gradient Descent (aka SGD and Satoshi Gaara Daisuke 🙇🏼‍♂️), Linear Support Vector Regression (aka SVR and Sophia Victoria Resende 🙆🏻‍♀️) and the Random Forest (aka RF and Rannah dom Fontes 👩‍💻) :D   
-They beat the other models (Ridge Regression and Linear Regression) and the stipulated baseline, that predicted the average of the training data for the new days.   
+The program train 7 models everyday. They are: Stochastic Gradient Descent, Ridge Regression, Linear Suppor Vector Regressor, K-Nearest Neighbors, Decision Tree, Random Forest and Ada Boost. The models are trained with the last 50 days, and tested with the last 5 - the best ones are chosen (based on their RMSE, Root Mean Squared Error) to tweet the predictions. As I observed, Linear SVR and SGD are the best ones.
 
-The models are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressTrio](https://twitter.com/RegressTrio) account on Twitter.
+The details of the models training and selection is in `regress_bot.py`and `functions.py` files. They are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressML](https://twitter.com/RegressML) account on Twitter.
 
 -------------------------
 
