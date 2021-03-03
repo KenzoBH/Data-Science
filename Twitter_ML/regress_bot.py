@@ -33,7 +33,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-username = '@RegressTrio'
+username = '@RegressML'
 companies_file = 'companies.txt'
 last_id_file = 'last_mention_id.txt'
 sleep_time = 20
@@ -65,7 +65,7 @@ while True:
         # Get the companies that we predict, reading the 'Companies.txt' file
         companies = read_file(companies_file)
         
-        # Look for new mentions that contains with '@RegressTrio "', that means that some user wants to register a new company to predict
+        # Look for new mentions that contains with '@RegressML "', that means that some user wants to register a new company to predict
         new_companies = []
         for mention in my_new_mentions:
             if re.search('{} ".*"'.format(username), mention.text) != None:
