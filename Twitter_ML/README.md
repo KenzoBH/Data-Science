@@ -4,7 +4,7 @@ If you're reading this in your cellphone, you can switch your viewing "to comput
 
 # Overview   
 
-This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday.   
+This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday. Users can see the predictions and ask for predictions of the companies they want.     
 Technologies and packages used:
 - Web Scraping: pandas and NumPy
 - Machine Learning Models: sklearn
