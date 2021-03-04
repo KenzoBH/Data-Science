@@ -4,7 +4,7 @@
 
 # **Sobre Ciência de Dados**
 
-### **Python (EN)**
+### **Python Projects (EN)**
   - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
   *[@RegressML](https://twitter.com/RegressML) on Twitter*
   
@@ -13,7 +13,7 @@
   
   
 
-### **R (PT-BR)**
+### **Projetos em R (PT-BR)**
   - [**Análise Exploratória de Dados do
 ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)   
 *Sobre o Sistema Educacional e Ambientes*
