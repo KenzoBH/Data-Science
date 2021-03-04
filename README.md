@@ -20,7 +20,7 @@ ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)
 
 # **Sobre mim, Bruno Kenzo**
 
-Um apaixonado por Matemática e um futuro cientista de dados.   
+Apaixonado por Matemática e um futuro cientista de dados.   
 17 anos, vestibulando e Técnico em Eletrônica.
 
 *Nascimento* 22/08/2003   
