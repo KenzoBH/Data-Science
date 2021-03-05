@@ -36,11 +36,11 @@ api = tweepy.API(auth)
 my_username = '@RegressML' # Username of the program tweet account
 mark = 'Regress.'          # Like a signature - used in the end of a tweet
 list_word = 'lista'        # Reserved word to a user ask for the companies that we already predict
-sleep_time = 1             # Seconds between each requisition of mentions
+sleep_time = 20            # Seconds between each requisition of mentions
 n_tweets = 4               # Number of tweets pulled on each requisition
 predictions_time = (8, 0)  # (Hour, minute), time to tweet the predictions
 link = 'https://finance.yahoo.com/quote/{}/history?p={}' # Link of the website that we get the data: Yahoo Finance
-companies_file = 'companies2.txt'
+companies_file = 'companies.txt'
 last_mention_id_file = 'last-mention-id.txt'
 
 # Generic texts for tweeting
