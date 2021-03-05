@@ -15,8 +15,8 @@ You can see the final project [here](https://twitter.com/RegressTrio) (the Twitt
 
 ## Files
 
-- [`regress_bot.py`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/regress_bot.py) and [`functions.py`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/functions.py): Python program that is running in [PythonAnywhere](https://www.pythonanywhere.com/), and contains the bot code and the models training. `functions.py` is a file that contais functions that I used in the `regress_bot.py` program.
-- [`companies_txt`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/companies.txt) and [`last_mention_id.txt`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/last_mention_id.txt): Example of text files used by the Regress Bot to store the companies that it predicts and tweets, and the last tweet that mentioned it's account (better explained on `regress_bot.py` logic and comments).
+- [`regress_bot.py`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/regress_bot.py) and [`funcs.py`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/funcs.py): Python program that is running in [PythonAnywhere](https://www.pythonanywhere.com/), and contains the bot code and the models training. `functions.py` is a file that contais functions that I used in the `regress_bot.py` program.
+- [`companies_txt`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/companies.txt) and [`last-mention-id.txt`](https://github.com/KenzoBH/Data-Science/blob/main/Twitter_ML/last-mention-id.txt): Example of text files used by the Regress Bot to store the companies that it predicts and tweets, and the last tweet that mentioned it's account (better explained on `regress_bot.py` logic and comments).
 
 ## Methods
 
