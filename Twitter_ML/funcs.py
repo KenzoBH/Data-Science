@@ -20,7 +20,7 @@ def read_file(file_to_open):
     file = open(file_to_open, 'r')
     if file_to_open == 'last-mention-id.txt':
         read_lines = file.readlines()[0]
-    elif file_to_open == 'companies.txt':
+    elif file_to_open == 'companies2.txt':
         read_lines = file.readlines()[0].split(',')
     file.close()
     return read_lines
@@ -65,7 +65,7 @@ def register_company(company, companies_file):
     companies = read_file(companies_file)
     companies.append(company)
     file = open(companies_file, 'w')
-    file.writelines(sorted(companies))
+    file.writelines(','.join(sorted(companies)))
     file.close()
     print('[New company registred: {}.]'.format(company))
 
