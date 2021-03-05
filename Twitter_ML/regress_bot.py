@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from functions import read_file, write_file, verify_company, get_df, fit_best_model, train_best_models, get_predictions, model_map
+# IMPORTING PACKAGES ------------------------------------------------
+
+import funcs # File that contains useful functions
 
 import pandas as pd
-import numpy as np
-
 import tweepy
 import time
 import re
@@ -16,135 +16,118 @@ from sklearn.svm import LinearSVR
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
+from sklearn.neural_network import MLPRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error
 
 import warnings
 warnings.filterwarnings('ignore')
 
-# VARIABLES AND TWEETER KEYS --------------------
+# TWEETER KEYS AND "CONSTANT VARIABLES" -----------------------------
 
 CONSUMER_KEY = ''
 CONSUMER_SECRET = ''
 ACCESS_KEY = ''
 ACCESS_SECRET = ''
-
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
 
-username = '@RegressML'
-companies_file = 'companies.txt'
-last_id_file = 'last_mention_id.txt'
-sleep_time = 20
-n_tweets = 4
-prevision_time_hour = 8
-prevision_time_minute = 0
-emojis = 'Regress'
-link = 'https://finance.yahoo.com/quote/{}/history?p={}'
+my_username = '@RegressML' # Username of the program tweet account
+mark = 'Regress.'          # Like a signature - used in the end of a tweet
+list_word = 'lista'        # Reserved word to a user ask for the companies that we already predict
+sleep_time = 1             # Seconds between each requisition of mentions
+n_tweets = 4               # Number of tweets pulled on each requisition
+predictions_time = (8, 0)  # (Hour, minute), time to tweet the predictions
+link = 'https://finance.yahoo.com/quote/{}/history?p={}' # Link of the website that we get the data: Yahoo Finance
+companies_file = 'companies2.txt'
+last_mention_id_file = 'last-mention-id.txt'
 
-# SEARCHING FOR MENTIONS ---------------------------
+# Generic texts for tweeting
+register_company_text = 'Nova ação para análise cadastrada por @{}:\n{} ;)\n\n{}'
+company_not_found_text = 'Oi @{}!\nNão encontramos essa ação: {} :(\nVocê digitou certo?\n\n{}'
+already_registered_company_text = 'Eai, @{}!\nJá tweetamos previsões de {} :D\n\n{}'
+companies_list_text = 'Eai @{}!\nTweetamos previsões dessas ações: {}\n\n{}'
+intro_tweets = [
+    'Sobre {}, que fechou ontem com R$ {}, a gente tem umas previsões:\n',
+    '{} fechou ontem em R$ {}. Trouxemos nossas previsões para alguns dias pra você :D\n',
+    'Se liga nas nossa previsões pra {}, que fechou ontem em R$ {}\n']
+predictions_text = '{}\n{}\nFechamento de hoje\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}\nFechamento daqui 5 dias\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}'
+
+df_length = 50
+test_lines = 10
+models = [
+    [SGDRegressor, 
+    [['squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'], ['l1', 'l2', 'elasticnet'], (0.00001, 5), ['constant', 'optimal', 'invscaling', 'adaptive']], 'SGD'],
+    [Ridge,
+    [(0.0001, 10), [True, False], [True, False], ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']], 'Ridge'],
+    [LinearSVR,
+    [(0, 1), (0.00001, 50)], 'SVR'],
+    [KNeighborsRegressor,
+    [(1, 20), ['uniform', 'distance'], ['auto', 'ball_tree', 'kd_tree', 'brute']], 'KNN'],
+    [DecisionTreeRegressor,
+    [['mse', 'friedman_mse', 'mae', 'poisson'], ['best', 'random'], (1, 500), (2, 300), (1, 300), (1, 5)], 'DT'],
+    [RandomForestRegressor,
+    [(1, 1000), ['mse', 'mae'], (1, 500), (0.001, 0.5), (0.001, 0.5), (1, 5)], 'RF'],
+    [AdaBoostRegressor,
+    [(1, 1000), (0.5, 5), ['linear', 'square', 'exponential']], 'Ada'],
+    [MLPRegressor,
+    [['identity', 'logistic', 'tanh', 'relu'], ['lbfgs', 'sgd', 'adam'], (0.000001, 50), ['constant', 'invscaling', 'adaptive']], 'NN']
+    ]
+
+# THE LOOP ----------------------------------------------------------
 
 while True:
-    # Searches for new mentions for each 20 seconds
+    # Wait some time to look for new mentions - Twitter has a limit of requests over time
     time.sleep(sleep_time)
-    now = str(datetime.now())
-    
-    # Opens the 'Mention_id.txt' file and read the id of the last mentioned tweet read
-    last_read_tweet = read_file(last_id_file)
-    # Read the mentions since the last mentioned tweet read and write the newest one on the file
-    my_new_mentions = api.mentions_timeline(since_id = last_read_tweet, count = n_tweets)
-    
-    #Look for new mentions
-    if len(my_new_mentions) == 0:
-        print("\n{}\nYou don't have new mentions".format(now))
+    now = datetime.now()
+
+    # SEARCHING FOR NEW MENTIONS AND REPLYING -----------------------
+
+    last_read_tweet = funcs.read_file(last_mention_id_file) # Get the last read tweet id stored in the file
+    new_mentions = api.mentions_timeline(since_id = last_read_tweet) # Get the mentions since the last read tweet
+    if len(new_mentions) == 0: # If there's no new mentions
+        print("\n{}\n- You don't have new mentions.".format(str(now)))
+    else: 
+        # If there's new mentions, we write the id of the last one on the file, and searches for patterns to see
+        # if the user is requesting a new company or the list of the companies already registered
+        print("\n{}\n- You have {} new mentions!".format(now, len(new_mentions)))
+        funcs.write_last_mention_id(new_mentions[0].id)
+        for new_mention in new_mentions:
+            api.create_favorite(new_mention.id) # Favs all new mentions
+            # If the new mention contains a regex (@[my_username] ".*") that is used to register new companies
+            if funcs.contains_new_company(new_mention, my_username):
+                # Get the company the user tweeted and the companies that is already registered
+                tweeted_company = funcs.get_company_in_tweet(new_mention)
+                companies = funcs.read_file(companies_file)
+                if tweeted_company in companies:
+                    funcs.reply_register_mention(api, new_mention, tweeted_company, mark, 'already registered', already_registered_company_text)
+                else: # If the tweeted company is not registered, we need to see if this company exists
+                    if funcs.company_exists(tweeted_company, link): # The company exists on Yahoo Finance
+                        funcs.reply_register_mention(api, new_mention, tweeted_company, mark, 'new company', register_company_text)
+                        funcs.register_company(tweeted_company, companies_file)
+                    else: # The company didn't exists on Yahoo Finance
+                        funcs.reply_register_mention(api, new_mention, tweeted_company, mark, 'company not found', company_not_found_text)
+            # If the user requested the list of the registered companies
+            elif funcs.wants_list(new_mention, my_username, list_word):
+                funcs.reply_list(api, new_mention, companies, mark, companies_list_text)
+
+    # MODELS AND PREDICTIONS TWEETS ---------------------------------
+
+    if not((now.hour == predictions_time[0]) & (now.minute == predictions_time[1]) & (date.today().weekday() in [0, 1, 2, 3, 4])):
+        print("- It's not time to tweet predictions.")
     else:
-        print("\n{}\nYou have a new mention!".format(now))
-        # Write the last mention id on the 'Mention_id.txt' file, to store the last seen tweet
-        write_file(last_id_file, str(my_new_mentions[0].id))
-        # Get the companies that we predict, reading the 'Companies.txt' file
-        companies = read_file(companies_file)
-        
-        # Look for new mentions that contains with '@RegressML "', that means that some user wants to register a new company to predict
-        new_companies = []
-        for mention in my_new_mentions:
-            if re.search('{} ".*"'.format(username), mention.text) != None:
-                # new_company contains the registered company in uppercase
-                new_company = ((re.search('".*"', mention.text).group(0))[1:-1]).upper() + '.SA'
-                # Verifies if the company is in companies
-                if new_company in companies:
-                    print('The new mention contains a company that is already on the list ({}).'.format(new_company))
-                    tweet_new_company = '@{} Já tweetamos previsões de {} :D\n\n{}'.format(mention.user.screen_name, new_company, emojis)
-                    print('\n-----\nNew tweet:\n{}\n-----\n'.format(tweet_new_company))
-                    api.create_favorite(str(mention.id)) # Favs the mention
-                    api.update_status(tweet_new_company, in_reply_to_status_id = str(mention.id)) # Reply the mention
-                else:
-                    print('The new mentions has a new company for our predictions ({}).'.format(new_company))
-                    # Searches the company in Yahoo Finance
-                    exists = verify_company(new_company, link)
-                    if exists: # If the company is found
-                        new_companies.append(new_company)
-                        tweet_new_company = 'Nova ação para análise cadastrada por @{}:\n{} ;)\n\n{}'.format(mention.user.screen_name, new_company, emojis)
-                        print('\n-----\nNew tweet:\n{}\n-----\n'.format(tweet_new_company))
-                        api.create_favorite(str(mention.id)) # Favs the mention
-                        api.update_status(tweet_new_company) # Reply the mention
-                    else: # If the company is not found
-                        tweet_new_company = 'Oi @{}!\nNão encontramos essa ação: {} :(\nVocê digitou certo?\n\n{}'.format(mention.user.screen_name, new_company, emojis)
-                        print('\n-----\nNew tweet:\n{}\n-----\n'.format(tweet_new_company))
-                        api.create_favorite(str(mention.id)) # Favs the mention
-                        api.update_status(tweet_new_company, in_reply_to_status_id = str(mention.id)) # Reply the mention
-            elif re.search('{} lista'.format(username), mention.text) != None:
-                companies_names = ', '.join(sorted(companies)) # Get a string with the name of the companies
-                tweet_companies = 'Eai @{}!\nJá tweetamos previsões dessas ações: {}\n\n{}'.format(mention.user.screen_name, companies_names, emojis)
-                print('\n-----\nNew tweet:\n{}\n-----\n'.format(tweet_companies))
-                api.create_favorite(str(mention.id)) # Favs the mention
-                api.update_status(tweet_companies, in_reply_to_status_id = str(mention.id)) # Reply the mention
-            else:
-                api.create_favorite(str(mention.id)) # Favs the mention
-            # Adds the new companies in the 'Companies.txt' file
-            for new_company in new_companies:
-                companies.append(new_company)
-            write_file(companies_file, ','.join(companies))
+        print("- It's time time tweet predictions!")
+        companies = funcs.read_file(companies_file)
+        for company in companies:
+            df, last_close = funcs.get_data_from_web(link, company, df_length)
 
-    # MODELS AND PREDICTIONS TWEETS --------------------
-
-    # If it's time to tweet (8h00 every day, except weekends), we tweet
-    if not((datetime.now().hour == prevision_time_hour) & (datetime.now().minute == prevision_time_minute) & (date.today().weekday() in [0, 1, 2, 3, 4])):
-        print("It's not prevision time")
-    else:
-        print("It's prevision time")
-        companies = read_file(companies_file)
-        for company in sorted(companies):
-            # Get the data from the link
-            print('Getting the data from web ({})...'.format(company))
-            df, today_data, y1, y5 = get_df(company, link)
-            today_close = round(float(list(today_data)[4]), 2)
-
-            print('Training models...')
-            # Calling a function that trains the models and get the best hyperparameters of each one - and returns the best 3 models
-            best_models1, best_models5 = fit_best_model([
-                SGDRegressor, Ridge, LinearSVR, DecisionTreeRegressor, RandomForestRegressor, AdaBoostRegressor, KNeighborsRegressor],
-                [np.arange(0.00001, 50, 0.05), np.arange(0.00002, 5, 0.05), np.arange(0.03, 15, 0.005),
-                np.arange(1, 1000, 10), np.arange(2, 100, 10), np.arange(3, 100, 10), np.arange(1, 20, 1)],
-                df)
+            X1_train, X1_test, y1_train, y1_test = funcs.get_train_test_data(df, 1, test_lines)
+            X5_train, X5_test, y5_train, y5_test = funcs.get_train_test_data(df, 5, test_lines)
+            best_models_1_day = funcs.get_best_3_models(models, X1_train, X1_test, y1_train, y1_test, 1)
+            best_models_5_days = funcs.get_best_3_models(models, X5_train, X5_test, y5_train, y5_test, 5)
+            p1 = funcs.get_predictions(best_models_1_day, 1, 10, df)
+            p5 = funcs.get_predictions(best_models_5_days, 5, 10, df)
             
-            # Gettin their predictions
-            predictions1, predictions5 = train_best_models(best_models1, best_models5, df)
-            mdl1_1, mdl1_1_p, mdl1_2, mdl1_2_p, mdl1_3, mdl1_3_p, mdl5_1, mdl5_1_p, mdl5_2, mdl5_2_p, mdl5_3, mdl5_3_p = get_predictions(predictions1, predictions5)
-            
-            ps = [mdl1_1_p, mdl1_2_p, mdl1_3_p, mdl5_1_p, mdl5_2_p, mdl5_3_p]
-            mdls_names = [mdl1_1, mdl1_2, mdl1_3, mdl5_1, mdl5_2, mdl5_3]
-            mdls = []
-            for model in mdls_names:
-                mdls.append(model_map(model))
-
-            # Tweeting our predictions
-            intro_tweets = ['Sobre {}, que fechou ontem com R$ {}, a gente tem umas previsões:\n'.format(company[:-3], today_close),
-                   '{} fechou ontem em R$ {}. Trouxemos nossas previsões para alguns dias pra você :D\n'.format(company[:-3], today_close),
-                   'Se liga nas nossa previsões pra {}, que fechou ontem em R$ {}\n'.format(company[:-3], today_close)]
-            predictions_text = "{}\n{}\nFechamento de hoje\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}\nFechamento daqui 5 dias\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}".format(date.today(), random.choice(intro_tweets), mdls[0], ps[0], mdls[1], ps[1], mdls[2], ps[2], mdls[3], ps[3], mdls[4], ps[4], mdls[5], ps[5])
-            print('\n-----\nNew tweet:\n{}\n-----\n'.format(predictions_text))
-            api.update_status(predictions_text)
-
-        # Wait 60 seconds to don't get into a new loop in 8h00
+            funcs.tweet_predictions(predictions_text, intro_tweets, company, last_close, p1, p5)
         time.sleep(60)
