@@ -22,7 +22,7 @@ You can see the final project [here](https://twitter.com/RegressTrio) (the Twitt
 
 The program train 7 models everyday. They are: Stochastic Gradient Descent, Ridge Regression, Linear Suppor Vector Regressor, K-Nearest Neighbors, Decision Tree, Random Forest and Ada Boost. The models are trained with the last 50 days, and tested with the last 5 - the best ones are chosen (based on their RMSE, Root Mean Squared Error) to tweet the predictions. As I observed, Linear SVR and SGD are the best ones.
 
-The details of the models training and selection is in `regress_bot.py`and `functions.py` files. They are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressML](https://twitter.com/RegressML) account on Twitter.
+The details of the models training and selection is in `regress_bot.py`and `funcs.py` files. They are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressML](https://twitter.com/RegressML) account on Twitter.
 
 -------------------------
 
