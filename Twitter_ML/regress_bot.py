@@ -58,7 +58,8 @@ df_length = 50
 test_lines = 10
 models = [
     [SGDRegressor, 
-    [['squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'], ['l1', 'l2', 'elasticnet'], (0.00001, 5), ['constant', 'optimal', 'invscaling', 'adaptive']], 'SGD'],
+    [['squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'], ['l1', 'l2', 'elasticnet'],
+     (0.00001, 5), ['constant', 'optimal', 'invscaling', 'adaptive']], 'SGD'],
     [Ridge,
     [(0.0001, 10), [True, False], [True, False], ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']], 'Ridge'],
     [LinearSVR,
