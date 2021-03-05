@@ -95,12 +95,12 @@ while True:
         print("\n{}\n- You have {} new mentions!".format(now, len(new_mentions)))
         funcs.write_last_mention_id(new_mentions[0].id)
         for new_mention in new_mentions:
+            companies = funcs.read_file(companies_file)
             api.create_favorite(new_mention.id) # Favs all new mentions
             # If the new mention contains a regex (@[my_username] ".*") that is used to register new companies
             if funcs.contains_new_company(new_mention, my_username):
                 # Get the company the user tweeted and the companies that is already registered
                 tweeted_company = funcs.get_company_in_tweet(new_mention)
-                companies = funcs.read_file(companies_file)
                 if tweeted_company in companies:
                     funcs.reply_register_mention(api, new_mention, tweeted_company, mark, 'already registered', already_registered_company_text)
                 else: # If the tweeted company is not registered, we need to see if this company exists
