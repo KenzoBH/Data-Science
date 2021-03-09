@@ -4,14 +4,15 @@ If you're reading this in your cellphone, you can switch your viewing "to comput
 
 # Overview   
 
-This project is about publishing (or tweeting) forecasts of 3 models on stocks in the financial market everyday. Users can see the predictions and ask for predictions of the companies they want.     
+This project is about publishing (or tweeting) forecasts of 7 models on stocks in the financial market everyday. Users can see the predictions and ask for predictions of the companies they want.     
+You can see the portuguese project page here, in my website: [link](https://kenzobh.github.io/projetos/machine-learning-twitter.html). There, I discussed over the project in a simpler way.   
 Technologies and packages used:
-- Web Scraping: pandas and NumPy
+- Web Scraping: pandas
 - Machine Learning Models: sklearn
 - Twitter Bot: Tweepy
 - Deploy: PythonAnywhere
 
-You can see the final project [here](https://twitter.com/RegressTrio) (the Twitter account of Regress).
+You can see the final project [here](https://twitter.com/RegressML) (the Twitter account of Regress).
 
 ## Files
 
@@ -20,9 +21,9 @@ You can see the final project [here](https://twitter.com/RegressTrio) (the Twitt
 
 ## Methods
 
-The program train 7 models everyday. They are: Stochastic Gradient Descent, Ridge Regression, Linear Suppor Vector Regressor, K-Nearest Neighbors, Decision Tree, Random Forest and Ada Boost. The models are trained with the last 50 days, and tested with the last 5 - the best ones are chosen (based on their RMSE, Root Mean Squared Error) to tweet the predictions. As I observed, Linear SVR and SGD are the best ones.
+The program train 7 models everyday. They are: Stochastic Gradient Descent, Ridge Regression, Linear Support Vector Regressor, K-Nearest Neighbors, Random Forest, Ada Boost and Neural Networks. The models are trained with the last 50 days, and tested with the last 5 - the best ones are chosen (based on their RMSE, Root Mean Squared Error) to tweet the predictions. As I observed, Linear SVR and SGD are the best ones.
 
-The details of the models training and selection is in `regress_bot.py`and `funcs.py` files. They are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressML](https://twitter.com/RegressML) account on Twitter.
+The details of the models training and selection is in `regress_bot.py`and `funcs.py` files. They are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressML](https://twitter.com/RegressML) account on Twitter. That simple.
 
 -------------------------
 
