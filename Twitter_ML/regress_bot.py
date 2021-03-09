@@ -25,10 +25,10 @@ warnings.filterwarnings('ignore')
 
 # TWEETER KEYS AND "CONSTANT VARIABLES" -----------------------------
 
-CONSUMER_KEY = ''
-CONSUMER_SECRET = ''
-ACCESS_KEY = ''
-ACCESS_SECRET = ''
+CONSUMER_KEY = 'XXX'
+CONSUMER_SECRET = 'XXX'
+ACCESS_KEY = 'XXX'
+ACCESS_SECRET = 'XXX'
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
@@ -57,9 +57,9 @@ predictions_text = '{}\n{}\nFechamento de hoje\n {}: R$ {}\n {}: R$ {}\n {}: R$ 
 df_length = 50
 test_lines = 10
 models = [
-    [SGDRegressor, 
+    [SGDRegressor,
     [['squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'], ['l1', 'l2', 'elasticnet'],
-     (0.00001, 5), ['constant', 'optimal', 'invscaling', 'adaptive']], 'SGD'],
+    (0.00001, 5), ['constant', 'optimal', 'invscaling', 'adaptive']], 'SGD'],
     [Ridge,
     [(0.0001, 10), [True, False], [True, False], ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']], 'Ridge'],
     [LinearSVR,
@@ -67,7 +67,7 @@ models = [
     [KNeighborsRegressor,
     [(1, 20), ['uniform', 'distance'], ['auto', 'ball_tree', 'kd_tree', 'brute']], 'KNN'],
     [DecisionTreeRegressor,
-    [['mse', 'friedman_mse', 'mae', 'poisson'], ['best', 'random'], (1, 500), (2, 300), (1, 300), (1, 5)], 'DT'],
+    [['mse', 'friedman_mse', 'mae'], ['best', 'random'], (1, 500), (2, 300), (1, 300), (1, 5)], 'DT'],
     [RandomForestRegressor,
     [(1, 1000), ['mse', 'mae'], (1, 500), (0.001, 0.5), (0.001, 0.5), (1, 5)], 'RF'],
     [AdaBoostRegressor,
@@ -89,18 +89,18 @@ while True:
     new_mentions = api.mentions_timeline(since_id = last_read_tweet) # Get the mentions since the last read tweet
     if len(new_mentions) == 0: # If there's no new mentions
         print("\n{}\n- You don't have new mentions.".format(str(now)))
-    else: 
+    else:
         # If there's new mentions, we write the id of the last one on the file, and searches for patterns to see
         # if the user is requesting a new company or the list of the companies already registered
         print("\n{}\n- You have {} new mentions!".format(now, len(new_mentions)))
         funcs.write_last_mention_id(new_mentions[0].id)
         for new_mention in new_mentions:
-            companies = funcs.read_file(companies_file)
             api.create_favorite(new_mention.id) # Favs all new mentions
             # If the new mention contains a regex (@[my_username] ".*") that is used to register new companies
             if funcs.contains_new_company(new_mention, my_username):
                 # Get the company the user tweeted and the companies that is already registered
                 tweeted_company = funcs.get_company_in_tweet(new_mention)
+                companies = funcs.read_file(companies_file)
                 if tweeted_company in companies:
                     funcs.reply_register_mention(api, new_mention, tweeted_company, mark, 'already registered', already_registered_company_text)
                 else: # If the tweeted company is not registered, we need to see if this company exists
@@ -129,6 +129,6 @@ while True:
             best_models_5_days = funcs.get_best_3_models(models, X5_train, X5_test, y5_train, y5_test, 5)
             p1 = funcs.get_predictions(best_models_1_day, 1, 10, df)
             p5 = funcs.get_predictions(best_models_5_days, 5, 10, df)
-            
-            funcs.tweet_predictions(predictions_text, intro_tweets, company, last_close, p1, p5)
+
+            funcs.tweet_predictions(predictions_text, intro_tweets, company, last_close, p1, p5, api)
         time.sleep(60)

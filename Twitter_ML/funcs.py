@@ -20,7 +20,7 @@ def read_file(file_to_open):
     file = open(file_to_open, 'r')
     if file_to_open == 'last-mention-id.txt':
         read_lines = file.readlines()[0]
-    elif file_to_open == 'companies2.txt':
+    elif file_to_open == 'companies.txt':
         read_lines = file.readlines()[0].split(',')
     file.close()
     return read_lines
@@ -143,7 +143,7 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
     print('\nTraining models for {} day(s)...'.format(days))
 
     baseline = np.ones(len(y_test)) * y_train.iloc[0]
-    baseline_rmse = mean_squared_error(y_test, baseline) ** 0.5 
+    baseline_rmse = mean_squared_error(y_test, baseline) ** 0.5
     print('Baseline RMSE: R$ {}'.format(round(baseline_rmse, 3)))
 
     final_list = []
@@ -170,7 +170,7 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
     best_3_models = sorted(final_list)[:3]
     return best_3_models
 
-def get_predictions(models, days, test_lines, df):    
+def get_predictions(models, days, test_lines, df):
     not_features = ['Date', 'Next Day Close', 'Next 5th Day Close']
     scaler = StandardScaler()
     if days == 1:
@@ -196,7 +196,8 @@ def get_predictions(models, days, test_lines, df):
 
     return predictions
 
-def tweet_predictions(predictions_text, intro_tweets, company, last_close, p1, p5):
+def tweet_predictions(predictions_text, intro_tweets, company, last_close, p1, p5, api):
     prediction_text = predictions_text.format(date.today(), random.choice(intro_tweets).format(company, last_close),
     p1[0][0], p1[0][1], p1[1][0], p1[1][1], p1[2][0], p1[2][1], p5[0][0], p5[0][1], p5[1][0], p5[1][1], p5[2][0], p5[2][1])
     print('-----\nNew tweet:\n{}\n-----'.format(prediction_text))
+    api.update_status(prediction_text)
