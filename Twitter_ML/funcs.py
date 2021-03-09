@@ -10,7 +10,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import SGDRegressor, Ridge
 from sklearn.svm import LinearSVR
 from sklearn.neighbors import KNeighborsRegressor
-from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
 from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import mean_squared_error
@@ -127,9 +126,6 @@ def pick_model(model, params):
         mdl = LinearSVR(epsilon = params[0], C = params[1])
     elif model == KNeighborsRegressor:
         mdl = KNeighborsRegressor(n_neighbors = params[0], weights = params[1], algorithm = params[2])
-    elif model == DecisionTreeRegressor:
-        mdl = DecisionTreeRegressor(criterion = params[0], splitter = params[1], max_depth = params[2],
-        min_samples_split = params[3], min_samples_leaf = params[4], max_features = params[5])
     elif model == RandomForestRegressor:
         mdl = RandomForestRegressor(n_estimators = params[0], criterion = params[1], max_depth = params[2],
         min_samples_split = params[3], min_samples_leaf = params[4], max_features = params[5])
@@ -143,7 +139,7 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
     print('\nTraining models for {} day(s)...'.format(days))
 
     baseline = np.ones(len(y_test)) * y_train.iloc[0]
-    baseline_rmse = mean_squared_error(y_test, baseline) ** 0.5
+    baseline_rmse = mean_squared_error(y_test, baseline) ** 0.5 
     print('Baseline RMSE: R$ {}'.format(round(baseline_rmse, 3)))
 
     final_list = []
@@ -170,7 +166,7 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
     best_3_models = sorted(final_list)[:3]
     return best_3_models
 
-def get_predictions(models, days, test_lines, df):
+def get_predictions(models, days, test_lines, df):    
     not_features = ['Date', 'Next Day Close', 'Next 5th Day Close']
     scaler = StandardScaler()
     if days == 1:
@@ -196,8 +192,8 @@ def get_predictions(models, days, test_lines, df):
 
     return predictions
 
-def tweet_predictions(predictions_text, intro_tweets, company, last_close, p1, p5, api):
+def tweet_predictions(api, predictions_text, intro_tweets, company, last_close, p1):
     prediction_text = predictions_text.format(date.today(), random.choice(intro_tweets).format(company, last_close),
-    p1[0][0], p1[0][1], p1[1][0], p1[1][1], p1[2][0], p1[2][1], p5[0][0], p5[0][1], p5[1][0], p5[1][1], p5[2][0], p5[2][1])
+    p1[0][0], p1[0][1], p1[1][0], p1[1][1], p1[2][0], p1[2][1])
     print('-----\nNew tweet:\n{}\n-----'.format(prediction_text))
     api.update_status(prediction_text)
