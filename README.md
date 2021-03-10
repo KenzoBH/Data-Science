@@ -1,8 +1,8 @@
-# **Data Science: portfólio de projetos**
+# **Data Science - Projects Portfolio**
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide1.PNG)
 
-# **Sobre Ciência de Dados**
+# **About Data Science**
 
 ### **Python Projects (EN)**
   - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
@@ -14,66 +14,60 @@
   
 
 ### **Projetos em R (PT-BR)**
-  - [**Análise Exploratória de Dados do
-ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)   
+  - [**Análise Exploratória de Dados do ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)   
 *Sobre o Sistema Educacional e Ambientes*
 
-# **Sobre mim, Bruno Kenzo**
+# **About me**
 
-Apaixonado por Matemática e um futuro cientista de dados.   
-17 anos, vestibulando e Técnico em Eletrônica.
+In love with Maths and a Data Scientist wannabe.   
+17, Electronics Technician.
 
-*Nascimento* 22/08/2003   
+*Birth date* August 22, 2003  
 *E-mail*
 <a href="mailto:brunokenzoh@gmail.com" class="email">brunokenzoh@gmail.com</a>   
-*LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)
+*LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)   
+*Website* [kenzobh.github.io](https://kenzobh.github.io/index.html)
 
-## **Formação**
+## **Formation**
 
-### **Técnico em Eletrônica** (janeiro/2018 - dezembro/2020)  
+### **Electronics Technician** (Jan/2018 - Dec/2020)  
 *Liceu de Artes e Ofícios de São Paulo*  
-Curso técnico integrado ao Ensino Médio em período semi-integral.
-Trabalhados conceitos de álgebra booleana, programação de
-microcontroladores em linguagem C++ – além do desenvolvimento de um
-projeto programado em linguagem Python e C++ de programação, como
-Trabalho de Conclusão de Curso – entre outros conhecimentos específicos,
-abordados em aulas práticas e teóricas.
+Technical course integrated to high school in semi-full time.
+Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ language - in addition to the development of a project programmed in Python programming language, as Course Conclusion Paper - among other specific knowledge, covered in practical and theoretical classes.
 
-## **Experiência**
+## **Experience**
 
-### **Apoio de Eletrônica para Projetos de Instrumentação Astronômica** (dezembro/2020 – atual)  
+### **Electronics Support for Astronomical Instrumentation Projects** (Dec/2020 – actual)  
 *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
-Desenvolvimento do módulo SAMplus do telescópio SOAR com bolsa FAPESP, sob
-orientação e supervisão de profissionais.
+Development of the SAMplus module of the SOAR telescope with FAPESP exchange, underguidance and supervision of professionals.
 
-### **Estágio - Técnico em Eletrônica** (março/2020 - agosto/2020)  
+### **Electronics Technician Internship** (Mar/2020 - Aug/2020)  
 *ETEC Getúlio Vargas*  
-Estágio relacionado às instalações elétricas da Escola Técnica, com
-supervisão de profissionais experientes.
+Internship related to the electrical installations of the Technical School, with supervision of experienced professionals.
 
 
-## **Extracurricularidades**
+## **furthermore**
 
 [**HackerRank**](https://www.hackerrank.com/brunokenzoh)  
 *Python Silver Star*
 
-**Língua Inglesa**  
-*Avançada*
+**English language**  
+*Advanced*
 
-**Aulas particulares de Matemática**   
-*Projeto autoral: [@Exaticando](https://www.instagram.com/exaticando/)*
+**Private Math classes**   
+*Author project: [@Exaticando](https://www.instagram.com/exaticando/) on Instagram*
 
-**Pacote Office**   
-*PowerPoint avançado*   
-*Word e Excel básicos*
+**Micosoft Office**   
+*Advanced PowerPoint skills*   
+*Basics skills on Word and Excel*
 
-**Cursos**   
+**Some courses**   
 *Data Science: R Basics; HarvardX*   
 *Pandas; kaggle*   
 *Data Cleaning; kaggle*   
 *Intro to Machine Learning; kaggle*
 
-**Bibliografias**   
+**Some literature**   
 *R for Data Science; Hadley Wickham & Garrett Grolemund*   
 *Como Mentir com Estatística; Darrel Huff*   
 *Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5; Gelson Iezzi & outros autores*
