@@ -119,20 +119,19 @@ def get_train_test_data(df, days, test_lines):
 
 def pick_model(model, params):
     if model == SGDRegressor:
-        mdl = SGDRegressor(loss = params[0], penalty = params[1], alpha = params[2], learning_rate = params[3])
+        mdl = SGDRegressor(penalty = params[0], alpha = params[1], learning_rate = params[2])
     elif model == Ridge:
-        mdl = Ridge(alpha = params[0], fit_intercept = params[1], normalize = params[2], solver = params[3])
+        mdl = Ridge(alpha = params[0])
     elif model == LinearSVR:
         mdl = LinearSVR(epsilon = params[0], C = params[1])
     elif model == KNeighborsRegressor:
-        mdl = KNeighborsRegressor(n_neighbors = params[0], weights = params[1], algorithm = params[2])
+        mdl = KNeighborsRegressor(n_neighbors = params[0], weights = params[1])
     elif model == RandomForestRegressor:
-        mdl = RandomForestRegressor(n_estimators = params[0], criterion = params[1], max_depth = params[2],
-        min_samples_split = params[3], min_samples_leaf = params[4], max_features = params[5])
+        mdl = RandomForestRegressor(n_estimators = params[0], max_depth = params[1], max_features = params[2])
     elif model == AdaBoostRegressor:
-        mdl = AdaBoostRegressor(n_estimators = params[0], learning_rate = params[1], loss = params[2])
+        mdl = AdaBoostRegressor(n_estimators = params[0], learning_rate = params[1])
     elif model == MLPRegressor:
-        mdl = MLPRegressor(activation = params[0], solver = params[1], alpha = params[2], learning_rate = params[3])
+        mdl = MLPRegressor(activation = params[0], alpha = params[1], learning_rate = params[2])
     return mdl
 
 def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
@@ -147,7 +146,6 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
         model = mdl_and_params[0]
         params = mdl_and_params[1]
         model_name = mdl_and_params[2]
-
         def train_model(params):
             mdl = pick_model(model, params)
             mdl.fit(X_train, y_train)
@@ -162,7 +160,6 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
         best_mdl = pick_model(model, best_params)
         final_list.append([mdl_rmse, model_name, best_mdl])
         print('{} RMSE: R$ {}'.format(model_name, round(mdl_rmse, 4)))
-
     best_3_models = sorted(final_list)[:3]
     return best_3_models
 
@@ -174,11 +171,12 @@ def get_predictions(models, days, test_lines, df):
     else:
         X_train = df.drop(not_features, axis = 1)[(test_lines + 5):]
     scaler.fit(X_train)
+
     last_data = df.iloc[0].drop(not_features)
     last_data = scaler.transform([last_data])
-
     X_to_fit = df.drop(not_features, axis = 1)[days:]
     X_to_fit = scaler.transform(X_to_fit)
+
     if days == 1:
         y_to_fit = df['Next Day Close'][1:]
     else:
@@ -189,7 +187,6 @@ def get_predictions(models, days, test_lines, df):
         model[2].fit(X_to_fit, y_to_fit)
         prediction = model[2].predict(last_data)[0]
         predictions.append((model[1], round(prediction, 2)))
-
     return predictions
 
 def tweet_predictions(api, predictions_text, intro_tweets, company, last_close, p1):

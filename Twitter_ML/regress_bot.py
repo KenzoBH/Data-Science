@@ -19,11 +19,10 @@ warnings.filterwarnings('ignore')
 
 # TWEETER KEYS AND "CONSTANT VARIABLES" -----------------------------
 
-# Omitted my credentials
-CONSUMER_KEY = 'XXX'
-CONSUMER_SECRET = 'XXX'
-ACCESS_KEY = 'XXX'
-ACCESS_SECRET = 'XXX'
+CONSUMER_KEY = '0uyHpCxS1I8SKdNCgYLf2PS4G'
+CONSUMER_SECRET = 'Dw0gsC1WBw9jSDfkHvm4h2aqehdU5UFytUcb4Vp9yAyPABYnNc'
+ACCESS_KEY = '1365099323864862723-2w9OWWFhkCTNC7TKGapDTed8R7KU5S'
+ACCESS_SECRET = 'TVNUa1gtQGjD0dMuwnyahAINMyvsdrUKUxJUDqhoKTQpm'
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
@@ -48,23 +47,23 @@ intro_tweets = [
     'Se liga nas nossa previsões pra {}, que fechou ontem em R$ {}\n']
 predictions_text = '{}\n{}\nFechamento de hoje\n {}: R$ {}\n {}: R$ {}\n {}: R$ {}'
 
-df_length = 50
-test_lines = 10
+df_length = 30
+test_lines = 5
 models = [
     [SGDRegressor, 
-    [['squared_loss', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'], ['l1', 'l2', 'elasticnet'], (0.0001, 5), ['constant', 'optimal', 'invscaling', 'adaptive']], 'SGD'],
+    [['l1', 'l2', 'elasticnet'], (0.0001, 10), ['constant', 'optimal', 'adaptive']], 'SGD'],
     [Ridge,
-    [(0.0001, 10), [True, False], [True, False], ['auto', 'svd', 'cholesky', 'lsqr']], 'Ridge'],
+    [(0.001, 10)], 'Ridge'],
     [LinearSVR,
     [(0, 1), (0.0001, 10)], 'SVR'],
     [KNeighborsRegressor,
-    [(1, 5), ['uniform', 'distance'], ['auto', 'ball_tree', 'kd_tree', 'brute']], 'KNN'],
+    [(1, 5), ['uniform', 'distance']], 'KNN'],
     [RandomForestRegressor,
-    [(1, 1000), ['mse', 'mae'], (1, 500), (0.001, 0.5), (0.001, 0.5), (1, 5)], 'RF'],
+    [(1, 1000), (1, 500), (1, 5)], 'RF'],
     [AdaBoostRegressor,
-    [(1, 1000), (0.5, 5), ['linear', 'square', 'exponential']], 'Ada'],
+    [(1, 1000), (0.01, 5)], 'Ada'],
     [MLPRegressor,
-    [['identity', 'logistic', 'tanh', 'relu'], ['lbfgs', 'sgd', 'adam'], (0.0001, 10), ['constant', 'invscaling', 'adaptive']], 'NN']
+    [['identity', 'logistic', 'tanh'], (0.001, 10), ['constant', 'invscaling', 'adaptive']], 'NN']
     ]
 
 # THE LOOP ----------------------------------------------------------
