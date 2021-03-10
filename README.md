@@ -1,6 +1,6 @@
 # **Data Science - Projects Portfolio**
 
-![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Slide1.PNG)
+![](https://github.com/KenzoBH/Data-Science/blob/main/Images/github-main-wallpaper.jpg)
 
 # **About Data Science**
 
