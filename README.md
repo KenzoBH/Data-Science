@@ -69,5 +69,5 @@ Internship related to the electrical installations of the Technical School, with
 
 **Some literature**   
 *R for Data Science; Hadley Wickham & Garrett Grolemund*   
-*Como Mentir com Estatística; Darrel Huff*   
-*Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5; Gelson Iezzi & outros autores*
+*How to Lie with Statistics; Darrel Huff*   
+*Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5; Gelson Iezzi & others*
