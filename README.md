@@ -46,7 +46,7 @@ Development of the SAMplus module of the SOAR telescope with FAPESP exchange, un
 Internship related to the electrical installations of the Technical School, with supervision of experienced professionals.
 
 
-## **furthermore**
+## **Furthermore**
 
 [**HackerRank**](https://www.hackerrank.com/brunokenzoh)  
 *Python Silver Star*
