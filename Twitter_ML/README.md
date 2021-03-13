@@ -1,4 +1,5 @@
 # **Twitter Bot for Machine Learning: Stock Predictions**   
+
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Regress.jpg)
 
 # Overview   
@@ -22,7 +23,7 @@ You can see the final project [here](https://twitter.com/RegressML) (the Twitter
 
 The program train 7 models everyday. They are: Stochastic Gradient Descent, Ridge Regression, Linear Support Vector Regressor, K-Nearest Neighbors, Random Forest, Ada Boost and Neural Networks. The models are trained with the last 30 days, and tested with the last 5 - the best 3 are chosen (based on their RMSE, Root Mean Squared Error) to tweet the predictions. As I observed, Linear SVR and SGD are the best ones.
 
-As the data is a time series, the ideal would train models like Arima or Prophet, from Facebook. I chose to use more "classic" models, because I wanted to see how these models  would perform. As the next step, you could see how time series models would predict. Furthermore, as the program is hosted in a free platforms, PythonAnywhere, it becomes impracticable train models with a lot of data - that's why I opted for 30 days (and using more days - I got to use 5 years - to train the models increased their RMSE, that's interesting).   
+As the data is a time series, the ideal would train models like Arima or Prophet, from Facebook. I chose to use more "classic" models, because I wanted to see how these models  would perform. As the next step, you could see how time series models would predict. Furthermore, as the program is hosted in a free platform, PythonAnywhere, it becomes impracticable train models with a lot of data - that's why I opted for 30 days (and using more days - I got to use 5 years - to train the models increased their RMSE, that's interesting). Maybe, with more recent data, the models learn stronger relations between the features and the label, one the recent data reflects better the today data.   
 Maybe, training a MLP (Multi-Layer Perceptron) in a small dataset is disproportionate - but I wanted to see how it would perform -, however, it seems to be a good model.
 
 More details of the models training and selection is in `regress_bot.py`and `funcs.py` files. They are trained everyday with new data, that is scraped off the [Yahoo Finance website](https://finance.yahoo.com/), and their predictions are shown on the [@RegressML](https://twitter.com/RegressML) account on Twitter. That simple.
