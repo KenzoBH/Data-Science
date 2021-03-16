@@ -28,12 +28,28 @@ In love with Maths and a Data Scientist wannabe.
 *LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)   
 *Website* [kenzobh.github.io](https://kenzobh.github.io/index.html)
 
+## **Skills**
+
+### **Python**   
+*Jupyter Notebook, pandas, NumPy, matplotlib, seaborn, scikit-learn, tweepy, Selenium, BeautifulSoup*   
+From data collection, through Web Scraping, using packages like Selenium and Beautiful Soup, or not. Intimacy with data cleaning and data analysis with pandas, NumPy, matplotlib, seaborn; feature engineering and Machine learning with scikit-learn.
+
+### **R**   
+*RStudio, tidyverse (ggplot2, tidyr, stringr, dplyr, etc.)*   
+Intimate with tidyverse for data analysis. See more [here](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_by_school_EDA_Python.ipynb), link that you can find a data analysis made in R.
+
+### **Web**   
+*HTML & CSS*   
+Knowledge of languages for building static websites, [like mine](https://kenzobh.github.io/index.html) - I like subjects related to multimedia issues - and data extraction from the internet, as already said.
+
+
 ## **Formation**
 
 ### **Electronics Technician** (Jan/2018 - Dec/2020)  
 *Liceu de Artes e Ofícios de São Paulo*  
 Technical course integrated to high school in semi-full time.
 Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ language - in addition to the development of a project programmed in Python programming language, as Course Conclusion Paper - among other specific knowledge, covered in practical and theoretical classes.
+
 
 ## **Experience**
 
@@ -48,26 +64,29 @@ Internship related to the electrical installations of the Technical School, with
 
 ## **Furthermore**
 
+### **English language**  
+*Advanced*
+
+### **Some courses**   
+Machine Learning Crash Course, by *Google Developers*   
+Data Science: R Basics, by *HarvardX*   
+Pandas, by *kaggle*   
+Data Cleaning, by *kaggle*   
+Intro to Machine Learning, by *kaggle*
+
+### **Some literature**   
+R for Data Science, by *Hadley Wickham & Garrett Grolemund*   
+Python for Data Analysis, by *Wes McKinney*   
+Hands-on Machine Learning with Scikit-Learn, Keras & TensorFlow, by *Aurélien Géron*   
+Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5, 7 (Sets and Functions - Exponentials and Logarithms - Matrices, Determinants and Linear Systems - Combinatory and Probability - Analytical Geometry), by *Gelson Iezzi & others*   
+How ton Lie with Statistics, by *Darrel Huff*   
+The Drunkard's Walk, by *Leonard Mlodinow*
+
 [**HackerRank**](https://www.hackerrank.com/brunokenzoh)  
 *Python Silver Star*
-
-**English language**  
-*Advanced*
 
 **Private Math classes**   
 *Author project: [@Exaticando](https://www.instagram.com/exaticando/) on Instagram*
 
 **Micosoft Office**   
-*Advanced PowerPoint skills*   
-*Basics skills on Word and Excel*
-
-**Some courses**   
-*Data Science: R Basics; HarvardX*   
-*Pandas; kaggle*   
-*Data Cleaning; kaggle*   
-*Intro to Machine Learning; kaggle*
-
-**Some literature**   
-*R for Data Science; Hadley Wickham & Garrett Grolemund*   
-*How to Lie with Statistics; Darrel Huff*   
-*Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5; Gelson Iezzi & others*
+*Word, Excel, and advanced PowerPoint skills*   
