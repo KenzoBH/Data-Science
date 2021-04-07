@@ -45,6 +45,10 @@ Knowledge of languages for building static websites, [like mine](https://kenzobh
 
 ## **Formation**
 
+### **Statistics, Bachelor** (Mar/2021 - actual)   
+*Universidade de São Paulo*   
+Graduated from the Institute of Mathematics and Statistics at the University of São Paulo, IME-USP.
+
 ### **Electronics Technician** (Jan/2018 - Dec/2020)  
 *Liceu de Artes e Ofícios de São Paulo*  
 Technical course integrated to high school in semi-full time.
@@ -79,7 +83,7 @@ R for Data Science, by *Hadley Wickham & Garrett Grolemund*
 Python for Data Analysis, by *Wes McKinney*   
 Hands-on Machine Learning with Scikit-Learn, Keras & TensorFlow, by *Aurélien Géron*   
 Fundamentos de Matemática Elementar: Vols. 1, 2, 4, 5, 7 (Sets and Functions - Exponentials and Logarithms - Matrices, Determinants and Linear Systems - Combinatory and Probability - Analytical Geometry), by *Gelson Iezzi & others*   
-How ton Lie with Statistics, by *Darrel Huff*   
+How to Lie with Statistics, by *Darrel Huff*   
 The Drunkard's Walk, by *Leonard Mlodinow*
 
 [**HackerRank**](https://www.hackerrank.com/brunokenzoh)  
