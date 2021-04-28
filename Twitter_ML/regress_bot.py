@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error
 import warnings
 warnings.filterwarnings('ignore')
 
-# TWEETER KEYS AND "CONSTANT VARIABLES" -----------------------------
+# TWITTER KEYS AND "CONSTANT VARIABLES" -----------------------------
 
 CONSUMER_KEY = '0uyHpCxS1I8SKdNCgYLf2PS4G'
 CONSUMER_SECRET = 'Dw0gsC1WBw9jSDfkHvm4h2aqehdU5UFytUcb4Vp9yAyPABYnNc'
