@@ -1,4 +1,4 @@
-<h1 text-align="center">Twitter Bot for Machine Learning: Stock Predictions</h1>   
+<h1 align="center">Twitter Bot for Machine Learning: Stock Predictions</h1>   
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/Regress.jpg)
 
