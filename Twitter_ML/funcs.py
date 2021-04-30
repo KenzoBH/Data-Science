@@ -87,6 +87,7 @@ def get_data_from_web(link, company, df_length):
     df = pd.read_html(link_company)[0].drop('Adj Close**', axis = 1)
 
     df = df[~df['Open'].str.contains('Dividend')]
+    df = df[~df['Open'].str.contains('Split')]
     df = df[df['Volume'] != '-'].head(df_length)
 
     df['Date'] = pd.to_datetime(df['Date'])
@@ -119,26 +120,26 @@ def get_train_test_data(df, days, test_lines):
 
 def pick_model(model, params):
     if model == SGDRegressor:
-        mdl = SGDRegressor(penalty = params[0], alpha = params[1], learning_rate = params[2])
+        mdl = SGDRegressor(penalty = params[0], alpha = params[1], learning_rate = params[2], early_stopping = True, max_iter = 100)
     elif model == Ridge:
-        mdl = Ridge(alpha = params[0])
+        mdl = Ridge(alpha = params[0], max_iter = 100)
     elif model == LinearSVR:
-        mdl = LinearSVR(epsilon = params[0], C = params[1])
+        mdl = LinearSVR(C = params[0], max_iter = 100)
     elif model == KNeighborsRegressor:
         mdl = KNeighborsRegressor(n_neighbors = params[0], weights = params[1])
     elif model == RandomForestRegressor:
-        mdl = RandomForestRegressor(n_estimators = params[0], max_depth = params[1], max_features = params[2])
+        mdl = RandomForestRegressor(n_estimators = params[0])
     elif model == AdaBoostRegressor:
         mdl = AdaBoostRegressor(n_estimators = params[0], learning_rate = params[1])
     elif model == MLPRegressor:
-        mdl = MLPRegressor(activation = params[0], alpha = params[1], learning_rate = params[2])
+        mdl = MLPRegressor(activation = params[0], learning_rate = params[1], early_stopping = True, solver = 'lbfgs')
     return mdl
 
 def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
     print('\nTraining models for {} day(s)...'.format(days))
 
     baseline = np.ones(len(y_test)) * y_train.iloc[0]
-    baseline_rmse = mean_squared_error(y_test, baseline) ** 0.5 
+    baseline_rmse = mean_squared_error(y_test, baseline) ** 0.5
     print('Baseline RMSE: R$ {}'.format(round(baseline_rmse, 3)))
 
     final_list = []
@@ -160,10 +161,11 @@ def get_best_3_models(models, X_train, X_test, y_train, y_test, days):
         best_mdl = pick_model(model, best_params)
         final_list.append([mdl_rmse, model_name, best_mdl])
         print('{} RMSE: R$ {}'.format(model_name, round(mdl_rmse, 4)))
+        print('    {}'.format(best_params))
     best_3_models = sorted(final_list)[:3]
     return best_3_models
 
-def get_predictions(models, days, test_lines, df):    
+def get_predictions(models, days, test_lines, df):
     not_features = ['Date', 'Next Day Close', 'Next 5th Day Close']
     scaler = StandardScaler()
     if days == 1:
@@ -173,6 +175,7 @@ def get_predictions(models, days, test_lines, df):
     scaler.fit(X_train)
 
     last_data = df.iloc[0].drop(not_features)
+    print(last_data)
     last_data = scaler.transform([last_data])
     X_to_fit = df.drop(not_features, axis = 1)[days:]
     X_to_fit = scaler.transform(X_to_fit)
