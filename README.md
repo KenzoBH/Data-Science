@@ -1,8 +1,8 @@
-# **Data Science - Projects Portfolio**
+<h1 align="center">Data Science - Projects Portfolio</h1>
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/github-main-wallpaper.jpg)
 
-# **About Data Science**
+<h1 align="center">About Data Science</h1>
 
 ### **Python Projects (EN)**
   - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
@@ -17,7 +17,7 @@
   - [**Análise Exploratória de Dados do ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)   
 *Sobre o Sistema Educacional e Ambientes*
 
-# **About me**
+<h1 align="center">About me</h1>
 
 In love with Maths and a Data Scientist wannabe.   
 17, Electronics Technician.
@@ -28,7 +28,7 @@ In love with Maths and a Data Scientist wannabe.
 *LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)   
 *Website* [kenzobh.github.io](https://kenzobh.github.io/index.html)
 
-## **Skills**
+<h2 align="center">Skills</h2>
 
 ### **Python**   
 *Jupyter Notebook, pandas, NumPy, matplotlib, seaborn, scikit-learn, tweepy, Selenium, BeautifulSoup*   
@@ -43,7 +43,7 @@ Intimate with tidyverse for data analysis. See more [here](https://github.com/Ke
 Knowledge of languages for building static websites, [like mine](https://kenzobh.github.io/index.html) - I like subjects related to multimedia issues - and data extraction from the internet, as already said.
 
 
-## **Formation**
+<h2 align="center">Formation</h2>
 
 ### **Statistics, Bachelor** (Mar/2021 - actual)   
 *Universidade de São Paulo*   
@@ -55,7 +55,7 @@ Technical course integrated to high school in semi-full time.
 Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ language - in addition to the development of a project programmed in Python programming language, as Course Conclusion Paper - among other specific knowledge, covered in practical and theoretical classes.
 
 
-## **Experience**
+<h2 align="center">Professional Experience</h2>
 
 ### **Electronics Support for Astronomical Instrumentation Projects** (Dec/2020 – actual)  
 *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
@@ -66,7 +66,7 @@ Development of the SAMplus module of the SOAR telescope with FAPESP exchange, un
 Internship related to the electrical installations of the Technical School, with supervision of experienced professionals.
 
 
-## **Furthermore**
+<h2 align="center">Furthermore</h2>
 
 ### **English language**  
 *Advanced*
