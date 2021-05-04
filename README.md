@@ -24,7 +24,7 @@ In love with Maths and a Data Scientist wannabe.
 
 *Birth date* August 22, 2003  
 *E-mail*
-<a href="mailto:brunokenzoh@gmail.com" class="email">brunokenzoh@gmail.com</a>   
+<a href="mailto:brunokenzoh@usp.br" class="email">brunokenzoh@usp.br</a>   
 *LinkedIn* [bruno-kenzo](https://www.linkedin.com/in/bruno-kenzo/)   
 *Website* [kenzobh.github.io](https://kenzobh.github.io/index.html)
 
@@ -56,6 +56,10 @@ Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ l
 
 
 <h2 align="center">Professional Experience</h2>
+
+### **Marketing Team Member** (May/2021 - actual)   
+*IME Jr. - IME-USP*   
+New member at the Marketing group at the Junior Company of the Institute.
 
 ### **Electronics Support for Astronomical Instrumentation Projects** (Dec/2020 – actual)  
 *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
