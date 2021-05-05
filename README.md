@@ -5,7 +5,7 @@
 <h1 align="center">About Data Science</h1>
 
 ### **Python Projects (EN)**
-  - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Data-Science/tree/main/Twitter_ML)   
+  - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Regress-Twitter-Bot)   
   *[@RegressML](https://twitter.com/RegressML) on Twitter*
   
   - [**Exploratory Data Analysis: ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_by_school_EDA_Python.ipynb)   
