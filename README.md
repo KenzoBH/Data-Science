@@ -8,7 +8,7 @@
   - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Regress-Twitter-Bot)   
   *[@RegressML](https://twitter.com/RegressML) on Twitter*
   
-  - [**Web Scraping and EDA from iFood Website Data](https://github.com/KenzoBH/Web-Scraping-and-EDA-iFood)
+  - [**Web Scraping and EDA from iFood Website Data**](https://github.com/KenzoBH/Web-Scraping-and-EDA-iFood)    
   *Project developed with IME Jr. team*
   
   - [**Exploratory Data Analysis: ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_by_school_EDA_Python.ipynb)   
