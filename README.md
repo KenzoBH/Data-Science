@@ -18,7 +18,7 @@
 
 ### **Projetos em R (PT-BR)**
   - [**Análise Exploratória e Visualização de Dados do iFood**](https://github.com/KenzoBH/Web-Scraping-and-EDA-iFood)  
-  *Análise feita em dados coletados por Web Scraping  
+  *Análise feita em dados coletados por Web Scraping*  
 
   - [**Análise Exploratória de Dados do ENEM**](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_R/ENEM_R.md)   
   *Sobre o Sistema Educacional e Ambientes*
