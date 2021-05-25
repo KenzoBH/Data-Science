@@ -1,3 +1,5 @@
+[![Updated Badge](https://badges.pufler.dev/updated/KenzoBH/Data-Science)](https://badges.pufler.dev)
+
 <h1 align="center">Data Science - Projects Portfolio</h1>
 
 ![](https://github.com/KenzoBH/Data-Science/blob/main/Images/github-main-wallpaper.jpg)
