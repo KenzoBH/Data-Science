@@ -43,7 +43,7 @@ From data collection, through Web Scraping, using packages like Selenium and Bea
 
 ### **R**   
 *RStudio, tidyverse (ggplot2, tidyr, stringr, dplyr, etc.)*   
-Intimate with tidyverse for data analysis. See more [here](https://github.com/KenzoBH/Data-Science/blob/main/ENEM_Python/ENEM_by_school_EDA_Python.ipynb), link that you can find a data analysis made in R.
+Intimate with tidyverse for data analysis. See more [here](https://kenzobh.github.io/projects/ifood-final-eda), link that you can find a data analysis made in R.
 
 ### **Web**   
 *HTML & CSS*   
