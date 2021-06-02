@@ -68,7 +68,7 @@ Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ l
 *IME Jr. - IME-USP*   
 New member at the Marketing group at the Junior Company of the Institute.
 
-### **Electronics Support for Astronomical Instrumentation Projects** (Dec/2020 – actual)  
+### **Electronics Support for Astronomical Instrumentation Projects** (Dec/2020 – May/2021)  
 *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
 Development of the SAMplus module of the SOAR telescope with FAPESP exchange, underguidance and supervision of professionals.
 
