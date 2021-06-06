@@ -1,6 +1,6 @@
 <h1 align="center">Data Science - Projects Portfolio</h1>
 
-[![](https://github.com/KenzoBH/Data-Science/blob/main/Images/github-main-wallpaper.jpg)]()
+![](https://github.com/KenzoBH/Data-Science/blob/main/Images/github-main-wallpaper.jpg)
 
 <h1 align="center">About Data Science</h1>
 
