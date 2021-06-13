@@ -66,7 +66,7 @@ Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ l
 
 ### **Marketing Team Member** (May/2021 - actual)   
 *IME Jr. - IME-USP*   
-New member at the Marketing group at the Junior Company of the Institute.
+Member of the junior company, developing internal projects and for external companies, and studying data related skills together with the team. Responsible for the company's art and design.
 
 ### **Electronics Support for Astronomical Instrumentation Projects** (Dec/2020 – May/2021)  
 *Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP*  
