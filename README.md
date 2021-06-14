@@ -64,7 +64,7 @@ Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ l
 
 <h2 align="center">Professional Experience</h2>
 
-### **Junior Data Analyst** (May/2021 - actual)   
+### **Junior Data Analyst** (June/2021 - actual)   
 *Shopee BR*   
 
 ### **Marketing Team Member** (May/2021 - actual)   
