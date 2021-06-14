@@ -64,6 +64,9 @@ Worked on concepts of Boolean Algebra, programming of microcontrollers in C ++ l
 
 <h2 align="center">Professional Experience</h2>
 
+### **Junior Data Analyst** (May/2021 - actual)   
+*Shopee BR*   
+
 ### **Marketing Team Member** (May/2021 - actual)   
 *IME Jr. - IME-USP*   
 Member of the junior company, developing internal projects and for external companies, and studying data related skills together with the team. Responsible for the company's art and design.
