@@ -26,7 +26,7 @@
 
 <h1 align="center">About me</h1>
 
-In love with Maths and a Data Scientist wannabe.   
+In love with Maths and Data Boy at Shopee.   
 17, Electronics Technician.
 
 *Birth date* August 22, 2003  
