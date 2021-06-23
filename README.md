@@ -4,7 +4,11 @@
 
 <h1 align="center">About Data Science</h1>
 
-### **Python Projects (EN)**
+### Data Visualizations
+  - [**Visualizations**](https://github.com/KenzoBH/Visualizations)  
+  *This repo contains nice data visualizations made by myself - on R (using ggplot2) and Python (using matplotlib and seaborn)*
+
+### Python Projects (EN)
   - [**Twitter Bot for Machine Learning: Stock Predictions**](https://github.com/KenzoBH/Regress-Twitter-Bot)   
   *[@RegressML](https://twitter.com/RegressML) on Twitter*
   
@@ -16,7 +20,7 @@
   
   
 
-### **Projetos em R (PT-BR)**
+### Projetos em R (PT-BR)
   - [**Análise Exploratória e Visualização de Dados do iFood**](https://github.com/KenzoBH/Web-Scraping-and-EDA-iFood)  
   *Análise feita em dados coletados por Web Scraping*  
 
