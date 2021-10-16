@@ -31,7 +31,7 @@
 <h1 align="center">About me</h1>
 
 In love with Maths and Data Boy at Shopee.   
-17, Electronics Technician.
+18 yo.
 
 *Birth date* August 22, 2003  
 *E-mail*
